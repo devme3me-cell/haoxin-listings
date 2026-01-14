@@ -26,7 +26,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-xl animate-slide-up leading-relaxed" style={{ animationDelay: "0.2s" }}>
-            永恆禮儀以專業、尊重、溫暖的服務態度，為您的摯愛安排一場莊嚴且溫馨的告別式。
+            壕芯實業以專業、尊重、溫暖的服務態度，為您的摯愛安排一場莊嚴且溫馨的告別式。
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{ animationDelay: "0.4s" }}>

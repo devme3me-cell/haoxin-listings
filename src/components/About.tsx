@@ -3,8 +3,8 @@ import gallery1 from "@/assets/gallery-1.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 
 const stats = [
-  { number: "30+", label: "年服務經驗" },
-  { number: "10,000+", label: "服務家庭" },
+  { number: "10+", label: "年服務經驗" },
+  { number: "1,000+", label: "服務家庭" },
   { number: "24", label: "小時服務" },
   { number: "100%", label: "客戶滿意" },
 ];
@@ -36,19 +36,23 @@ const About = () => {
           <div className="lg:pl-12">
             <p className="section-title">ABOUT US</p>
             <h2 className="section-heading mb-8">
-              關 於 壕 芯 實 業
+              關 於 我 們
             </h2>
             
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              壕芯實業主要以服務殯葬禮儀、代銷殯葬商品、生基科儀、法會等服務，累積多年經驗，擁有為數不少的客群，秉持著「以客為尊」的企業精神服務每一位客戶，提供高規格高品質的優良服務，長期受到客戶的信任與肯定。
+            </p>
+
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              壕芯實業成立至今已有三十餘年歷史，我們深知失去至親的悲痛，因此以最專業、最溫暖的服務態度，陪伴每一個家庭走過人生最艱難的時刻。
+              公司管理嚴謹，強調以客為尊，重視員工的素質，對未來充滿企圖心及願景，嚴守主要核心價值：責任與尊重。
             </p>
 
             <ul className="space-y-4 mb-12">
               {[
                 "專業禮儀師全程服務",
-                "24小時免費諮詢專線",
-                "透明化收費絕無隱藏費用",
-                "各式宗教儀式皆可承辦",
+                "代銷塔位、生前契約諮詢",
+                "生基、造生基、生基承租",
+                "中式、西式、主題式禮儀",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-warm-gold rounded-full" />

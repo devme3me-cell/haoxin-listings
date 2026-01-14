@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="永恆禮儀服務大廳"
+          alt="壕芯實業禮儀服務"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
@@ -17,16 +17,17 @@ const Hero = () => {
       {/* Content */}
       <div className="container relative z-10 px-6 lg:px-12 pt-24">
         <div className="max-w-2xl">
-          <p className="section-title animate-fade-in">專業禮儀服務</p>
+          <p className="section-title animate-fade-in">中、西、主題式禮儀殯葬服務</p>
           
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-light leading-tight mb-8 animate-slide-up">
-            用心陪伴
-            <br />
-            <span className="font-medium">走過人生最後一程</span>
+            壕芯生命禮儀
           </h1>
           
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-xl animate-slide-up leading-relaxed" style={{ animationDelay: "0.2s" }}>
-            壕芯實業以專業、尊重、溫暖的服務態度，為您的摯愛安排一場莊嚴且溫馨的告別式。
+          <p className="text-lg md:text-xl text-muted-foreground mb-6 max-w-xl animate-slide-up leading-relaxed" style={{ animationDelay: "0.2s" }}>
+            代銷塔位、生前契約、骨灰罈、內膽等相關諮詢之代銷服務
+          </p>
+          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-xl animate-slide-up leading-relaxed" style={{ animationDelay: "0.3s" }}>
+            生基、造生基、代銷生基、生基承租、科儀等服務
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{ animationDelay: "0.4s" }}>

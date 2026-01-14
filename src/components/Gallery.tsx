@@ -6,15 +6,15 @@ import gallery4 from "@/assets/gallery-4.jpg";
 import service1 from "@/assets/service-1.jpg";
 import service2 from "@/assets/service-2.jpg";
 
-const categories = ["全部", "告別式", "靈堂佈置", "設施環境"];
+const categories = ["全部", "奠禮現場", "塔位展示", "設施環境"];
 
 const galleryItems = [
-  { image: gallery1, category: "告別式", title: "佛教告別式" },
-  { image: gallery2, category: "設施環境", title: "納骨塔園區" },
-  { image: gallery3, category: "告別式", title: "追思禮堂" },
-  { image: gallery4, category: "設施環境", title: "接待大廳" },
-  { image: service1, category: "靈堂佈置", title: "鮮花佈置" },
-  { image: service2, category: "靈堂佈置", title: "靈堂擺設" },
+  { image: gallery1, category: "奠禮現場", title: "告別式典禮" },
+  { image: gallery2, category: "塔位展示", title: "福壽園塔位" },
+  { image: gallery3, category: "奠禮現場", title: "追思禮堂" },
+  { image: gallery4, category: "設施環境", title: "服務環境" },
+  { image: service1, category: "塔位展示", title: "國寶南都" },
+  { image: service2, category: "奠禮現場", title: "靈堂佈置" },
 ];
 
 const Gallery = () => {
@@ -31,7 +31,7 @@ const Gallery = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="section-title">GALLERY</p>
-          <h2 className="section-heading mb-8">服 務 實 績</h2>
+          <h2 className="section-heading mb-8">奠 禮 現 場</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             每一場告別式都是獨一無二的，我們用心記錄每一個溫馨的瞬間，見證對摯愛的最後敬意。
           </p>

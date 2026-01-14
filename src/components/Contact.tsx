@@ -34,8 +34,8 @@ const Contact = () => {
               <div className="flex items-start gap-4">
                 <Phone className="w-5 h-5 mt-1 opacity-70" />
                 <div>
-                  <p className="text-sm opacity-70 mb-1">24小時免費專線</p>
-                  <p className="text-xl font-heading">0800-888-168</p>
+                  <p className="text-sm opacity-70 mb-1">聯絡專線</p>
+                  <p className="text-xl font-heading">02-2233-0000</p>
                 </div>
               </div>
               
@@ -43,7 +43,7 @@ const Contact = () => {
                 <Mail className="w-5 h-5 mt-1 opacity-70" />
                 <div>
                   <p className="text-sm opacity-70 mb-1">電子郵件</p>
-                  <p className="text-lg">service@eternal-memorial.com.tw</p>
+                  <p className="text-lg">service@haoxin.com.tw</p>
                 </div>
               </div>
               
@@ -51,7 +51,7 @@ const Contact = () => {
                 <MapPin className="w-5 h-5 mt-1 opacity-70" />
                 <div>
                   <p className="text-sm opacity-70 mb-1">服務據點</p>
-                  <p className="text-lg">台北市中山區民生東路三段168號</p>
+                  <p className="text-lg">台灣各地均有服務</p>
                 </div>
               </div>
               
@@ -59,7 +59,7 @@ const Contact = () => {
                 <Clock className="w-5 h-5 mt-1 opacity-70" />
                 <div>
                   <p className="text-sm opacity-70 mb-1">服務時間</p>
-                  <p className="text-lg">全年無休，24小時服務</p>
+                  <p className="text-lg">週一至週日 09:00-18:00</p>
                 </div>
               </div>
             </div>

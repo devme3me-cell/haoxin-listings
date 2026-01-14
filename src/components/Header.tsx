@@ -14,10 +14,9 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: "首頁", href: "#home" },
-    { name: "服務項目", href: "#services" },
     { name: "關於我們", href: "#about" },
-    { name: "服務實績", href: "#gallery" },
+    { name: "服務項目", href: "#services" },
+    { name: "奠禮現場", href: "#gallery" },
     { name: "聯絡我們", href: "#contact" },
   ];
 
@@ -57,11 +56,11 @@ const Header = () => {
           {/* Contact & Mobile Menu */}
           <div className="flex items-center gap-6">
             <a
-              href="tel:0800-888-168"
+              href="tel:02-2233-0000"
               className="hidden md:flex items-center gap-2 text-sm tracking-wider hover:text-warm-gold transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span>0800-888-168</span>
+              <span>02-2233-0000</span>
             </a>
             
             <button
@@ -89,11 +88,11 @@ const Header = () => {
                 </a>
               ))}
               <a
-                href="tel:0800-888-168"
+                href="tel:02-2233-0000"
                 className="flex items-center gap-2 text-lg tracking-wider text-warm-gold"
               >
                 <Phone className="w-5 h-5" />
-                <span>0800-888-168</span>
+                <span>02-2233-0000</span>
               </a>
             </div>
           </nav>

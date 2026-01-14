@@ -16,14 +16,14 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
-              三十年專業禮儀服務經驗，以溫暖、專業、尊重的態度，陪伴每一個家庭走過人生最重要的告別時刻。
+              主要以服務殯葬禮儀、代銷殯葬商品、生基科儀、法會等服務，秉持著「以客為尊」的企業精神服務每一位客戶，提供高規格高品質的優良服務。
             </p>
             <a
-              href="tel:0800-888-168"
+              href="tel:02-2233-0000"
               className="inline-flex items-center gap-2 text-foreground hover:text-warm-gold transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span className="font-heading text-lg">0800-888-168</span>
+              <span className="font-heading text-lg">02-2233-0000</span>
             </a>
           </div>
 
@@ -33,10 +33,10 @@ const Footer = () => {
               服務項目
             </h4>
             <ul className="space-y-3 text-muted-foreground">
-              <li><a href="#services" className="hover:text-foreground transition-colors">告別式規劃</a></li>
-              <li><a href="#services" className="hover:text-foreground transition-colors">靈堂佈置</a></li>
-              <li><a href="#services" className="hover:text-foreground transition-colors">法事誦經</a></li>
-              <li><a href="#services" className="hover:text-foreground transition-colors">塔位諮詢</a></li>
+              <li><a href="#services" className="hover:text-foreground transition-colors">代銷生基</a></li>
+              <li><a href="#services" className="hover:text-foreground transition-colors">代銷塔位</a></li>
+              <li><a href="#services" className="hover:text-foreground transition-colors">代銷骨灰罈</a></li>
+              <li><a href="#services" className="hover:text-foreground transition-colors">科儀服務</a></li>
             </ul>
           </div>
 
@@ -46,9 +46,9 @@ const Footer = () => {
               聯絡資訊
             </h4>
             <ul className="space-y-3 text-muted-foreground">
-              <li>台北市中山區民生東路三段168號</li>
-              <li>service@eternal-memorial.com.tw</li>
-              <li>24小時全年無休</li>
+              <li>台灣各地均有服務</li>
+              <li>service@haoxin.com.tw</li>
+              <li>週一至週日 09:00-18:00</li>
             </ul>
           </div>
         </div>

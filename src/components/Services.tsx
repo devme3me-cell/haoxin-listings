@@ -5,20 +5,20 @@ import service3 from "@/assets/service-3.jpg";
 const services = [
   {
     number: "01",
-    title: "告別式規劃",
-    description: "依據家屬需求與逝者信仰，規劃傳統或現代化的告別式典禮，讓每一場送別都充滿溫情。",
+    title: "代銷生基",
+    description: "提供專業生基服務，包含造生基、代銷生基、生基承租等完整服務，助您趨吉避凶、開運祈福。",
     image: service1,
   },
   {
     number: "02",
-    title: "靈堂佈置",
-    description: "精心設計靈堂空間，以莊嚴典雅的花藝與燈光，營造溫馨肅穆的追思環境。",
+    title: "代銷塔位",
+    description: "與各大優質塔位合作，提供多元選擇，價格透明合理，協助您為摯愛安排最安心的長眠之所。",
     image: service2,
   },
   {
     number: "03",
-    title: "全程服務",
-    description: "從接體、冰存、入殮、出殯到安葬或進塔，提供完整的禮儀服務流程，讓家屬無後顧之憂。",
+    title: "尊龍禮御",
+    description: "提供中式、西式、主題式等多元禮儀殯葬服務，量身打造專屬告別式，讓摯愛走得尊嚴。",
     image: service3,
   },
 ];
@@ -29,8 +29,8 @@ const Services = () => {
       <div className="container px-6 lg:px-12">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-24">
-          <p className="section-title">OUR SERVICES</p>
-          <h2 className="section-heading">服 務 項 目</h2>
+          <p className="section-title">SERVICE</p>
+          <h2 className="section-heading">服 務 連 結</h2>
         </div>
 
         {/* Services Grid */}
@@ -72,10 +72,27 @@ const Services = () => {
         {/* Additional Services */}
         <div className="mt-16 lg:mt-24 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { icon: "🕯️", title: "法事誦經" },
-            { icon: "🌸", title: "花籃訂製" },
-            { icon: "📜", title: "禮儀用品" },
-            { icon: "🏛️", title: "塔位諮詢" },
+            { icon: "🏺", title: "代銷骨灰罈" },
+            { icon: "⚱️", title: "代銷內膽" },
+            { icon: "🕯️", title: "科儀服務" },
+            { icon: "💜", title: "心靈療癒諮詢" },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="flex items-center gap-4 p-6 bg-background border border-border hover:border-warm-gold/50 transition-colors duration-300"
+            >
+              <span className="text-2xl">{item.icon}</span>
+              <span className="font-heading text-lg tracking-wide">{item.title}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Additional Service Row */}
+        <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { icon: "🎋", title: "奠禮現場" },
+            { icon: "📋", title: "生前契約" },
+            { icon: "🔄", title: "轉換專區" },
           ].map((item) => (
             <div
               key={item.title}

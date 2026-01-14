@@ -215,4 +215,14 @@
       transform: translateX(0);
     }
   }
+
+  /* Animated favicon pulse effect via CSS - applied to html for favicon animation simulation */
+  @keyframes faviconPulse {
+    0%, 100% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.2);
+    }
+  }
 }

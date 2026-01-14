@@ -20,7 +20,7 @@ const Hero = () => {
           <p className="section-title animate-fade-in">中、西、主題式禮儀殯葬服務</p>
           
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-light leading-tight mb-8 animate-slide-up">
-            壕芯生命禮儀
+            壕芯實業
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground mb-6 max-w-xl animate-slide-up leading-relaxed" style={{ animationDelay: "0.2s" }}>

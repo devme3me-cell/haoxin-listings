@@ -76,7 +76,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <nav className="lg:hidden absolute top-full left-0 right-0 bg-background/98 backdrop-blur-md border-t border-border shadow-lg animate-slide-up">
+          <nav className="lg:hidden absolute top-full left-0 right-0 bg-background border-t border-border shadow-lg animate-slide-up">
             <div className="container py-8 space-y-6">
               {navItems.map((item) => (
                 <a

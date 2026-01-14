@@ -34,10 +34,10 @@ const Header = () => {
           {/* Logo */}
           <a href="#home" className="flex flex-col items-start">
             <span className="text-xl md:text-2xl font-heading font-semibold tracking-wider">
-              永恆禮儀
+              壕芯實業
             </span>
             <span className="text-xs tracking-[0.3em] text-muted-foreground">
-              ETERNAL MEMORIAL
+              HAO XIN ENTERPRISE
             </span>
           </a>
 

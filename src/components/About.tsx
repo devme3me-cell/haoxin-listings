@@ -36,11 +36,11 @@ const About = () => {
           <div className="lg:pl-12">
             <p className="section-title">ABOUT US</p>
             <h2 className="section-heading mb-8">
-              關 於 永 恆 禮 儀
+              關 於 壕 芯 實 業
             </h2>
             
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              永恆禮儀成立至今已有三十餘年歷史，我們深知失去至親的悲痛，因此以最專業、最溫暖的服務態度，陪伴每一個家庭走過人生最艱難的時刻。
+              壕芯實業成立至今已有三十餘年歷史，我們深知失去至親的悲痛，因此以最專業、最溫暖的服務態度，陪伴每一個家庭走過人生最艱難的時刻。
             </p>
 
             <ul className="space-y-4 mb-12">

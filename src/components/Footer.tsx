@@ -9,10 +9,10 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="mb-6">
               <span className="text-2xl font-heading font-semibold tracking-wider">
-                永恆禮儀
+                壕芯實業
               </span>
               <span className="block text-xs tracking-[0.3em] text-muted-foreground mt-1">
-                ETERNAL MEMORIAL
+                HAO XIN ENTERPRISE
               </span>
             </div>
             <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
@@ -56,7 +56,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 永恆禮儀 Eternal Memorial. All rights reserved.
+            © 2024 壕芯實業 Hao Xin Enterprise. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors">隱私政策</a>

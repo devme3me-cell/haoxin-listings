@@ -50,7 +50,7 @@ const About = () => {
                 </li>)}
             </ul>
 
-            <a href="/about" className="inline-flex items-center gap-3 text-sm tracking-wider font-medium group">
+            <a href="#contact" className="inline-flex items-center gap-3 text-sm tracking-wider font-medium group">
               了解更多
               <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
             </a>

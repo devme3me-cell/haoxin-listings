@@ -38,15 +38,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-10">
-            {navItems.map(item => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm tracking-wider hover:text-warm-gold transition-colors"
-              >
-                {item.name}
-              </a>
-            ))}
+            {navItems.map(item => {})}
           </nav>
 
           {/* Contact & Mobile Menu */}

@@ -2,14 +2,18 @@ import { motion } from "framer-motion";
 
 const FloatingClouds = () => {
   const clouds = [
-    { id: 1, size: 200, top: "5%", left: "-10%", duration: 80, delay: 0, opacity: 0.15 },
-    { id: 2, size: 150, top: "15%", left: "20%", duration: 90, delay: 5, opacity: 0.1 },
-    { id: 3, size: 180, top: "25%", left: "60%", duration: 70, delay: 10, opacity: 0.12 },
-    { id: 4, size: 120, top: "40%", left: "-5%", duration: 100, delay: 15, opacity: 0.08 },
-    { id: 5, size: 160, top: "60%", left: "30%", duration: 85, delay: 20, opacity: 0.1 },
-    { id: 6, size: 140, top: "75%", left: "70%", duration: 95, delay: 8, opacity: 0.12 },
-    { id: 7, size: 100, top: "10%", left: "80%", duration: 75, delay: 25, opacity: 0.08 },
-    { id: 8, size: 130, top: "50%", left: "50%", duration: 88, delay: 12, opacity: 0.1 },
+    { id: 1, size: 300, top: "5%", left: "-10%", duration: 60, delay: 0, opacity: 0.35 },
+    { id: 2, size: 250, top: "15%", left: "20%", duration: 70, delay: 3, opacity: 0.3 },
+    { id: 3, size: 280, top: "25%", left: "60%", duration: 55, delay: 6, opacity: 0.32 },
+    { id: 4, size: 220, top: "40%", left: "-5%", duration: 75, delay: 9, opacity: 0.25 },
+    { id: 5, size: 260, top: "60%", left: "30%", duration: 65, delay: 12, opacity: 0.3 },
+    { id: 6, size: 240, top: "75%", left: "70%", duration: 72, delay: 4, opacity: 0.32 },
+    { id: 7, size: 200, top: "10%", left: "80%", duration: 58, delay: 15, opacity: 0.25 },
+    { id: 8, size: 230, top: "50%", left: "50%", duration: 68, delay: 8, opacity: 0.28 },
+    { id: 9, size: 270, top: "35%", left: "10%", duration: 62, delay: 2, opacity: 0.3 },
+    { id: 10, size: 210, top: "70%", left: "45%", duration: 78, delay: 11, opacity: 0.26 },
+    { id: 11, size: 290, top: "20%", left: "40%", duration: 66, delay: 7, opacity: 0.33 },
+    { id: 12, size: 195, top: "85%", left: "15%", duration: 80, delay: 14, opacity: 0.24 },
   ];
 
   return (
@@ -56,30 +60,60 @@ const FloatingClouds = () => {
       ))}
 
       {/* Additional wispy clouds that float vertically */}
-      {[1, 2, 3, 4].map((i) => (
+      {[1, 2, 3, 4, 5, 6].map((i) => (
         <motion.div
           key={`wisp-${i}`}
-          className="absolute w-64 h-32"
+          className="absolute w-96 h-48"
           style={{
-            left: `${i * 25 - 10}%`,
-            top: `${20 + i * 15}%`,
+            left: `${i * 18 - 10}%`,
+            top: `${15 + i * 12}%`,
           }}
           initial={{ y: 0, opacity: 0 }}
           animate={{
-            y: [0, -30, 0, 20, 0],
-            opacity: [0, 0.06, 0.08, 0.06, 0],
-            x: [0, 50, 100, 150, 200],
+            y: [0, -40, 0, 30, 0],
+            opacity: [0, 0.18, 0.22, 0.18, 0],
+            x: [0, 80, 160, 240, 320],
           }}
           transition={{
-            duration: 60 + i * 10,
-            delay: 3 + i * 5,
+            duration: 45 + i * 8,
+            delay: 2 + i * 3,
             repeat: Infinity,
             ease: "easeInOut",
           }}
         >
           <div 
             className="w-full h-full bg-white rounded-full"
-            style={{ filter: "blur(20px)" }}
+            style={{ filter: "blur(30px)" }}
+          />
+        </motion.div>
+      ))}
+
+      {/* Large slow-moving background clouds */}
+      {[1, 2, 3].map((i) => (
+        <motion.div
+          key={`bg-cloud-${i}`}
+          className="absolute"
+          style={{
+            width: 400 + i * 50,
+            height: 200 + i * 25,
+            top: `${10 + i * 25}%`,
+            left: "-20%",
+          }}
+          initial={{ x: 0, opacity: 0 }}
+          animate={{
+            x: ["0%", "140vw"],
+            opacity: [0, 0.2, 0.25, 0.2, 0],
+          }}
+          transition={{
+            duration: 90 + i * 15,
+            delay: i * 10,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        >
+          <div 
+            className="w-full h-full bg-gradient-to-r from-white/60 via-white to-white/60 rounded-full"
+            style={{ filter: "blur(40px)" }}
           />
         </motion.div>
       ))}

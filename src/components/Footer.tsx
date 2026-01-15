@@ -61,7 +61,7 @@ const Footer = () => {
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <Link to="/privacy" className="hover:text-foreground transition-colors">隱私政策</Link>
-            <a href="#" className="hover:text-foreground transition-colors">服務條款</a>
+            <Link to="/terms" className="hover:text-foreground transition-colors">服務條款</Link>
             <Link to="/disclaimer" className="hover:text-foreground transition-colors">免責聲明</Link>
           </div>
         </div>

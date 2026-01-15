@@ -5,6 +5,9 @@ const FloatingClouds = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
 
+  // Fade out clouds as user scrolls past hero (roughly 100vh)
+  const containerOpacity = useTransform(scrollY, [0, 400, 800], [1, 0.6, 0]);
+
   // Different parallax speeds for different cloud layers
   const parallaxSlow = useTransform(scrollY, [0, 1000], [0, -50]);
   const parallaxMedium = useTransform(scrollY, [0, 1000], [0, -120]);
@@ -40,7 +43,11 @@ const FloatingClouds = () => {
   };
 
   return (
-    <div ref={containerRef} className="fixed inset-0 pointer-events-none overflow-hidden z-[5]">
+    <motion.div 
+      ref={containerRef} 
+      className="fixed inset-0 pointer-events-none overflow-hidden z-[5]"
+      style={{ opacity: containerOpacity }}
+    >
       {clouds.map((cloud) => (
         <motion.div
           key={cloud.id}
@@ -143,7 +150,7 @@ const FloatingClouds = () => {
           />
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

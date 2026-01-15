@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,12 +41,29 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex flex-col items-start">
-            <span className="text-xl md:text-2xl font-heading font-semibold tracking-wider">
+          {/* Logo with gold shimmer */}
+          <Link to="/" className="flex flex-col items-start group">
+            <motion.span 
+              className="text-xl md:text-2xl font-heading font-semibold tracking-wider relative overflow-hidden"
+              style={{
+                background: "linear-gradient(90deg, hsl(38, 70%, 50%) 0%, hsl(45, 85%, 70%) 25%, hsl(38, 70%, 50%) 50%, hsl(45, 85%, 70%) 75%, hsl(38, 70%, 50%) 100%)",
+                backgroundSize: "200% 100%",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{
+                duration: 4,
+                ease: "easeInOut",
+                repeat: Infinity,
+              }}
+            >
               壕芯實業
-            </span>
-            <span className="text-xs tracking-[0.3em] text-muted-foreground">
+            </motion.span>
+            <span className="text-xs tracking-[0.3em] text-warm-gold/70">
               HAO XIN ENTERPRISE
             </span>
           </Link>

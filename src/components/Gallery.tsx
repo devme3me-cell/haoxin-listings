@@ -1,58 +1,68 @@
-import serviceKeyi from "@/assets/service-keyi.jpg";
-import serviceKaiyun from "@/assets/service-kaiyun.jpg";
-import serviceShengjiGuan from "@/assets/service-shengji-guan.jpg";
-import servicePaiwei from "@/assets/service-paiwei.jpg";
-import serviceShengji from "@/assets/service-shengji.jpg";
-import serviceTawei from "@/assets/service-tawei.jpg";
-import serviceGuhuitan from "@/assets/service-guhuitan.jpg";
-import serviceNeidan from "@/assets/service-neidan.jpg";
-import serviceContract from "@/assets/service-contract.jpg";
-
-const serviceItems = [
-  { name: "代銷科儀", image: serviceKeyi },
-  { name: "開運商品", image: serviceKaiyun },
-  { name: "代銷生基罐", image: serviceShengjiGuan },
-  { name: "代銷牌位", image: servicePaiwei },
-  { name: "代銷生基", image: serviceShengji },
-  { name: "代銷塔位", image: serviceTawei },
-  { name: "代銷骨灰罈", image: serviceGuhuitan },
-  { name: "代銷内膽", image: serviceNeidan },
-  { name: "代銷生前契約", image: serviceContract },
-];
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { serviceItems } from "@/data/serviceData";
 
 const Gallery = () => {
   return (
     <section id="gallery" className="py-24 lg:py-32 bg-secondary/30">
       <div className="container px-6 lg:px-12">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
           <p className="section-title">OUR SERVICES</p>
           <h2 className="section-heading mb-8">服務項目</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             誠摯服務，用心至上
           </p>
-        </div>
+        </motion.div>
 
         {/* Services Grid - Centered */}
         <div className="flex flex-wrap justify-center gap-4">
           {serviceItems.map((item, index) => (
-            <div
-              key={index}
-              className="group relative bg-background border border-border hover:border-primary transition-all duration-300 cursor-pointer w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.75rem)] lg:w-[calc(20%-0.8rem)]"
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.75rem)] lg:w-[calc(20%-0.8rem)]"
             >
-              <div className="aspect-square overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-4 text-center">
-                <h4 className="text-lg font-heading group-hover:text-primary transition-colors duration-300">
-                  {item.name}
-                </h4>
-              </div>
-            </div>
+              <Link
+                to={`/service/${item.id}`}
+                className="group relative block bg-background border border-border hover:border-primary transition-all duration-300 overflow-hidden"
+              >
+                <div className="aspect-square overflow-hidden relative">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/60 transition-all duration-500 flex items-center justify-center">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileHover={{ opacity: 1, scale: 1 }}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    >
+                      <div className="w-12 h-12 rounded-full bg-warm-gold flex items-center justify-center">
+                        <ArrowRight className="w-5 h-5 text-foreground" />
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+                <div className="p-4 text-center">
+                  <h4 className="text-lg font-heading group-hover:text-primary transition-colors duration-300">
+                    {item.name}
+                  </h4>
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>

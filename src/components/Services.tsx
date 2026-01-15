@@ -13,7 +13,7 @@ const services = [{
   image: service2
 }, {
   number: "03",
-  title: "尊龍禮御",
+  title: "用心傾聽",
   description: "提供中式、西式、主題式等多元禮儀殯葬服務，量身打造專屬告別式，讓摯愛走得尊嚴。",
   image: service3
 }];

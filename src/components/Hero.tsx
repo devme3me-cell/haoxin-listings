@@ -1,7 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-memorial.jpg";
-
 const Hero = () => {
   return <section id="home" className="relative min-h-screen flex items-center">
       {/* Background Image */}
@@ -15,25 +14,20 @@ const Hero = () => {
         <div className="max-w-2xl">
           
           
-          <motion.h1 
-            className="text-4xl md:text-5xl font-heading leading-tight mb-8 animate-slide-up font-semibold lg:text-7xl relative"
-            style={{
-              background: "linear-gradient(90deg, hsl(38, 70%, 50%) 0%, hsl(45, 90%, 75%) 20%, hsl(50, 95%, 80%) 40%, hsl(45, 90%, 75%) 60%, hsl(38, 70%, 50%) 80%, hsl(45, 85%, 70%) 100%)",
-              backgroundSize: "300% 100%",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              textShadow: "0 0 40px hsla(45, 80%, 60%, 0.3)",
-            }}
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{
-              duration: 5,
-              ease: "easeInOut",
-              repeat: Infinity,
-            }}
-          >
+          <motion.h1 className="text-4xl md:text-5xl font-heading leading-tight mb-8 animate-slide-up font-semibold lg:text-7xl relative" style={{
+          background: "linear-gradient(90deg, hsl(38, 70%, 50%) 0%, hsl(45, 90%, 75%) 20%, hsl(50, 95%, 80%) 40%, hsl(45, 90%, 75%) 60%, hsl(38, 70%, 50%) 80%, hsl(45, 85%, 70%) 100%)",
+          backgroundSize: "300% 100%",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          textShadow: "0 0 40px hsla(45, 80%, 60%, 0.3)"
+        }} animate={{
+          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+        }} transition={{
+          duration: 5,
+          ease: "easeInOut",
+          repeat: Infinity
+        }}>
             壕芯實業
           </motion.h1>
           
@@ -51,7 +45,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{
           animationDelay: "0.4s"
         }}>
-            <a href="#services" className="inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-sm tracking-wider hover:bg-primary/90 transition-all duration-300 group">
+            <a href="#services" className="inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-sm tracking-wider hover:bg-primary/90 transition-all duration-300 group rounded-md">
               服務項目
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>

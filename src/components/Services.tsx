@@ -56,17 +56,11 @@ const Services = () => {
 
 
         {/* Additional Service Row */}
-        <div className="mt-6 grid md:grid-cols-2 gap-6">
-          {[{
-          icon: "📋",
-          title: "生前契約"
-        }, {
-          icon: "🔄",
-          title: "轉換專區"
-        }].map(item => <div key={item.title} className="flex items-center gap-4 p-6 bg-background border border-border hover:border-warm-gold/50 transition-colors duration-300">
-              <span className="text-2xl">{item.icon}</span>
-              <span className="font-heading text-lg tracking-wide">{item.title}</span>
-            </div>)}
+        <div className="mt-6 flex justify-center">
+          <div className="flex items-center gap-4 p-6 bg-background border border-border hover:border-warm-gold/50 transition-colors duration-300">
+            <span className="text-2xl">📋</span>
+            <span className="font-heading text-lg tracking-wide">生前契約</span>
+          </div>
         </div>
       </div>
     </section>;

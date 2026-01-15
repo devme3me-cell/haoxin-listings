@@ -63,9 +63,6 @@ const Header = () => {
             >
               壕芯實業
             </motion.span>
-            <span className="text-xs tracking-[0.3em] text-warm-gold/70">
-              HAO XIN ENTERPRISE
-            </span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -6,7 +6,7 @@ const FloatingClouds = () => {
   const { scrollY } = useScroll();
 
   // Fade out clouds as user scrolls past hero (roughly 100vh)
-  const containerOpacity = useTransform(scrollY, [0, 400, 800], [1, 0.6, 0]);
+  const containerOpacity = useTransform(scrollY, [0, 600, 1200], [1, 0.7, 0]);
 
   // Different parallax speeds for different cloud layers
   const parallaxSlow = useTransform(scrollY, [0, 1000], [0, -50]);

@@ -4,7 +4,7 @@ import service3 from "@/assets/service-3.jpg";
 const services = [{
   number: "01",
   title: "專業服務",
-  description: "提供專業生基服務，包含造生基、代銷生基、生基承租等完整服務，助您趨吉避凶、開運祈福。",
+  description: "壕芯實業提供專業的代銷服務，涵蓋塔位、生前契約、骨灰罈及內膽等多元產品。我們以豐富的經驗與專業知識，協助您做出最適切的選擇，為摯愛規劃完善的身後安排。",
   image: service1
 }, {
   number: "02",

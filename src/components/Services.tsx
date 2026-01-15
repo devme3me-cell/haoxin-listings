@@ -8,7 +8,7 @@ const services = [{
   image: service1
 }, {
   number: "02",
-  title: "代銷塔位",
+  title: "誠信至上",
   description: "與各大優質塔位合作，提供多元選擇，價格透明合理，協助您為摯愛安排最安心的長眠之所。",
   image: service2
 }, {

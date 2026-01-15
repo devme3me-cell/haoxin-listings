@@ -1,4 +1,5 @@
 import { Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -61,6 +62,7 @@ const Footer = () => {
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors">隱私政策</a>
             <a href="#" className="hover:text-foreground transition-colors">服務條款</a>
+            <Link to="/disclaimer" className="hover:text-foreground transition-colors">免責聲明</Link>
           </div>
         </div>
       </div>

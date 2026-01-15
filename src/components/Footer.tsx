@@ -60,7 +60,7 @@ const Footer = () => {
             © 2024 壕芯實業 Hao Xin Enterprise. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">隱私政策</a>
+            <Link to="/privacy" className="hover:text-foreground transition-colors">隱私政策</Link>
             <a href="#" className="hover:text-foreground transition-colors">服務條款</a>
             <Link to="/disclaimer" className="hover:text-foreground transition-colors">免責聲明</Link>
           </div>

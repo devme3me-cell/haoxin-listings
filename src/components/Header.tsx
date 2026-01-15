@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -75,7 +76,7 @@ const Header = () => {
           </nav>
 
           {/* Contact & Mobile Menu */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
             <a
               href="tel:02-2233-0000"
               className="hidden md:flex items-center gap-2 text-sm tracking-wider hover:text-primary transition-colors"
@@ -83,6 +84,8 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               <span>02-2233-0000</span>
             </a>
+
+            <ThemeToggle />
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

@@ -91,14 +91,14 @@ const FloatingClouds = () => {
           >
             <svg
               viewBox="0 0 200 120"
-              className="w-full h-full drop-shadow-[0_8px_40px_rgba(120,120,120,0.35)] dark:drop-shadow-none transition-[filter] duration-500"
+              className="w-full h-full drop-shadow-[0_8px_40px_rgba(120,120,120,0.35)] dark:drop-shadow-[0_4px_25px_rgba(255,255,255,0.2)] transition-[filter] duration-500"
               style={{ filter: "blur(8px)" }}
             >
               <defs>
                 <radialGradient id={`cloud-grad-${cloud.id}`} cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" className="[stop-color:rgb(160,160,160)] dark:[stop-color:white]" stopOpacity="0.9" />
-                  <stop offset="50%" className="[stop-color:rgb(185,185,185)] dark:[stop-color:white]" stopOpacity="0.7" />
-                  <stop offset="100%" className="[stop-color:rgb(210,210,210)] dark:[stop-color:white]" stopOpacity="0" />
+                  <stop offset="0%" className="[stop-color:rgb(160,160,160)] dark:[stop-color:rgb(255,255,255)]" stopOpacity="0.9" />
+                  <stop offset="50%" className="[stop-color:rgb(185,185,185)] dark:[stop-color:rgb(240,240,255)]" stopOpacity="0.7" />
+                  <stop offset="100%" className="[stop-color:rgb(210,210,210)] dark:[stop-color:rgb(220,220,240)]" stopOpacity="0" />
                 </radialGradient>
               </defs>
               <ellipse cx="100" cy="70" rx="80" ry="40" fill={`url(#cloud-grad-${cloud.id})`} />
@@ -152,7 +152,7 @@ const FloatingClouds = () => {
             className="w-full h-full"
           >
             <div 
-              className="w-full h-full rounded-full bg-gray-400/80 dark:bg-white drop-shadow-[0_8px_50px_rgba(100,100,100,0.3)] dark:drop-shadow-none transition-[filter] duration-500"
+              className="w-full h-full rounded-full bg-gray-400/80 dark:bg-white/90 drop-shadow-[0_8px_50px_rgba(100,100,100,0.3)] dark:drop-shadow-[0_4px_30px_rgba(255,255,255,0.15)] transition-[filter] duration-500"
               style={{ filter: "blur(40px)" }}
             />
           </motion.div>
@@ -200,7 +200,7 @@ const FloatingClouds = () => {
             className="w-full h-full"
           >
             <div 
-              className="w-full h-full rounded-full bg-gradient-to-r from-gray-400/60 via-gray-300 to-gray-400/60 dark:from-white/60 dark:via-white dark:to-white/60 drop-shadow-[0_12px_60px_rgba(100,100,100,0.25)] dark:drop-shadow-none transition-[filter] duration-500"
+              className="w-full h-full rounded-full bg-gradient-to-r from-gray-400/60 via-gray-300 to-gray-400/60 dark:from-white/80 dark:via-white/95 dark:to-white/80 drop-shadow-[0_12px_60px_rgba(100,100,100,0.25)] dark:drop-shadow-[0_8px_40px_rgba(255,255,255,0.12)] transition-[filter] duration-500"
               style={{ filter: "blur(50px)" }}
             />
           </motion.div>

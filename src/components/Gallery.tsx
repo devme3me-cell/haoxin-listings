@@ -35,7 +35,7 @@ const Gallery = () => {
             >
               <Link
                 to={`/service/${item.id}`}
-                className="group relative block bg-background border border-border hover:border-warm-gold hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] transition-all duration-300 overflow-hidden"
+                className="group relative block bg-background border border-border rounded-xl hover:border-warm-gold hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] transition-all duration-300 overflow-hidden"
               >
                 <div className="aspect-square overflow-hidden relative">
                   <img

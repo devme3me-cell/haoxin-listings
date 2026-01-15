@@ -13,10 +13,7 @@ const Hero = () => {
         <div className="max-w-2xl">
           
           
-          <h1 
-            className="text-4xl md:text-5xl font-heading leading-tight mb-8 animate-slide-up font-semibold lg:text-7xl text-warm-gold"
-            style={{ textShadow: '0 0 20px rgba(212, 175, 55, 0.4), 0 0 40px rgba(212, 175, 55, 0.2), 0 2px 4px rgba(0, 0, 0, 0.3)' }}
-          >
+          <h1 className="text-4xl md:text-5xl font-heading leading-tight mb-8 animate-slide-up font-semibold lg:text-7xl text-warm-gold">
             壕芯實業
           </h1>
           

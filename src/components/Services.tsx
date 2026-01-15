@@ -1,21 +1,21 @@
-import service1 from "@/assets/service-1.jpg";
-import service2 from "@/assets/service-2.jpg";
-import service3 from "@/assets/service-3.jpg";
+import serviceProfessional from "@/assets/service-professional.jpg";
+import serviceIntegrity from "@/assets/service-integrity.jpg";
+import serviceCaring from "@/assets/service-caring.jpg";
 const services = [{
   number: "01",
   title: "專業服務",
   description: "壕芯實業提供專業的代銷服務，涵蓋塔位、生前契約、骨灰罈及內膽等多元產品。我們以豐富的經驗與專業知識，協助您做出最適切的選擇，為摯愛規劃完善的身後安排。",
-  image: service1
+  image: serviceProfessional
 }, {
   number: "02",
   title: "誠信至上",
   description: "壕芯實業秉持誠信經營的核心理念，所有產品價格公開透明，絕無隱藏費用。我們重視每一位客戶的信任，以真誠的態度提供專業諮詢，讓您安心託付、無後顧之憂。",
-  image: service2
+  image: serviceIntegrity
 }, {
   number: "03",
   title: "用心傾聽",
   description: "壕芯實業深知每位客戶的需求與心情皆不同，我們用心傾聽您的想法與期望，提供最貼心的建議與服務。無論是諮詢或規劃，我們都將陪伴您走過每一步，給予最溫暖的支持。",
-  image: service3
+  image: serviceCaring
 }];
 const Services = () => {
   return <section id="services" className="py-24 lg:py-32 bg-secondary/30">

@@ -175,6 +175,34 @@
   .gradient-overlay {
     @apply absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent;
   }
+
+  /* Shining text preloader */
+  .shining-text {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    letter-spacing: 0.4em;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--foreground) / 0.1) 0%,
+      hsl(var(--warm-gold)) 50%,
+      hsl(var(--foreground) / 0.1) 100%
+    );
+    background-size: 80%;
+    background-repeat: no-repeat;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: shining 3s linear infinite;
+  }
+
+  @keyframes shining {
+    from {
+      background-position: -500%;
+    }
+    to {
+      background-position: 500%;
+    }
+  }
 }
 
 @layer utilities {

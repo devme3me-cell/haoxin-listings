@@ -16,18 +16,18 @@ const FloatingClouds = () => {
   const parallaxHorizontalRight = useTransform(scrollY, [0, 1000], [0, 80]);
 
   const clouds = [
-    { id: 1, size: 300, top: "5%", left: "-10%", duration: 60, delay: 0, opacity: 0.35, speed: "fast", horizontal: "left" },
-    { id: 2, size: 250, top: "15%", left: "20%", duration: 70, delay: 3, opacity: 0.3, speed: "medium", horizontal: "right" },
-    { id: 3, size: 280, top: "25%", left: "60%", duration: 55, delay: 6, opacity: 0.32, speed: "slow", horizontal: "left" },
-    { id: 4, size: 220, top: "40%", left: "-5%", duration: 75, delay: 9, opacity: 0.25, speed: "fast", horizontal: "right" },
-    { id: 5, size: 260, top: "60%", left: "30%", duration: 65, delay: 12, opacity: 0.3, speed: "medium", horizontal: "left" },
-    { id: 6, size: 240, top: "75%", left: "70%", duration: 72, delay: 4, opacity: 0.32, speed: "slow", horizontal: "right" },
-    { id: 7, size: 200, top: "10%", left: "80%", duration: 58, delay: 15, opacity: 0.25, speed: "fast", horizontal: "left" },
-    { id: 8, size: 230, top: "50%", left: "50%", duration: 68, delay: 8, opacity: 0.28, speed: "medium", horizontal: "right" },
-    { id: 9, size: 270, top: "35%", left: "10%", duration: 62, delay: 2, opacity: 0.3, speed: "slow", horizontal: "left" },
-    { id: 10, size: 210, top: "70%", left: "45%", duration: 78, delay: 11, opacity: 0.26, speed: "fast", horizontal: "right" },
-    { id: 11, size: 290, top: "20%", left: "40%", duration: 66, delay: 7, opacity: 0.33, speed: "medium", horizontal: "left" },
-    { id: 12, size: 195, top: "85%", left: "15%", duration: 80, delay: 14, opacity: 0.24, speed: "slow", horizontal: "right" },
+    { id: 1, size: 420, top: "5%", left: "-10%", duration: 60, delay: 0, opacity: 0.55, speed: "fast", horizontal: "left" },
+    { id: 2, size: 350, top: "15%", left: "20%", duration: 70, delay: 3, opacity: 0.5, speed: "medium", horizontal: "right" },
+    { id: 3, size: 390, top: "25%", left: "60%", duration: 55, delay: 6, opacity: 0.52, speed: "slow", horizontal: "left" },
+    { id: 4, size: 310, top: "40%", left: "-5%", duration: 75, delay: 9, opacity: 0.45, speed: "fast", horizontal: "right" },
+    { id: 5, size: 360, top: "60%", left: "30%", duration: 65, delay: 12, opacity: 0.5, speed: "medium", horizontal: "left" },
+    { id: 6, size: 340, top: "75%", left: "70%", duration: 72, delay: 4, opacity: 0.52, speed: "slow", horizontal: "right" },
+    { id: 7, size: 280, top: "10%", left: "80%", duration: 58, delay: 15, opacity: 0.45, speed: "fast", horizontal: "left" },
+    { id: 8, size: 320, top: "50%", left: "50%", duration: 68, delay: 8, opacity: 0.48, speed: "medium", horizontal: "right" },
+    { id: 9, size: 380, top: "35%", left: "10%", duration: 62, delay: 2, opacity: 0.5, speed: "slow", horizontal: "left" },
+    { id: 10, size: 290, top: "70%", left: "45%", duration: 78, delay: 11, opacity: 0.46, speed: "fast", horizontal: "right" },
+    { id: 11, size: 400, top: "20%", left: "40%", duration: 66, delay: 7, opacity: 0.53, speed: "medium", horizontal: "left" },
+    { id: 12, size: 270, top: "85%", left: "15%", duration: 80, delay: 14, opacity: 0.44, speed: "slow", horizontal: "right" },
   ];
 
   const getParallaxY = (speed: string) => {
@@ -74,13 +74,14 @@ const FloatingClouds = () => {
         >
           <svg
             viewBox="0 0 200 120"
-            className="w-full h-full"
-            style={{ filter: "blur(8px)" }}
+            className="w-full h-full drop-shadow-[0_4px_20px_rgba(0,0,0,0.15)] dark:drop-shadow-none"
+            style={{ filter: "blur(6px)" }}
           >
             <defs>
               <radialGradient id={`cloud-grad-${cloud.id}`} cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="white" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="white" stopOpacity="0" />
+                <stop offset="0%" className="[stop-color:rgb(180,180,180)] dark:[stop-color:white]" stopOpacity="0.95" />
+                <stop offset="60%" className="[stop-color:rgb(200,200,200)] dark:[stop-color:white]" stopOpacity="0.6" />
+                <stop offset="100%" className="[stop-color:rgb(220,220,220)] dark:[stop-color:white]" stopOpacity="0" />
               </radialGradient>
             </defs>
             <ellipse cx="100" cy="70" rx="80" ry="40" fill={`url(#cloud-grad-${cloud.id})`} />
@@ -95,8 +96,10 @@ const FloatingClouds = () => {
       {[1, 2, 3, 4, 5, 6].map((i) => (
         <motion.div
           key={`wisp-${i}`}
-          className="absolute w-96 h-48"
+          className="absolute"
           style={{
+            width: 480 + i * 20,
+            height: 240 + i * 10,
             left: `${i * 18 - 10}%`,
             top: `${15 + i * 12}%`,
             y: i % 3 === 0 ? parallaxFast : i % 2 === 0 ? parallaxMedium : parallaxSlow,
@@ -104,7 +107,7 @@ const FloatingClouds = () => {
           }}
           initial={{ opacity: 0 }}
           animate={{
-            opacity: [0, 0.18, 0.22, 0.18, 0],
+            opacity: [0, 0.35, 0.42, 0.35, 0],
           }}
           transition={{
             duration: 45 + i * 8,
@@ -114,8 +117,8 @@ const FloatingClouds = () => {
           }}
         >
           <div 
-            className="w-full h-full bg-white rounded-full"
-            style={{ filter: "blur(30px)" }}
+            className="w-full h-full rounded-full bg-gray-300 dark:bg-white drop-shadow-[0_4px_25px_rgba(0,0,0,0.12)] dark:drop-shadow-none"
+            style={{ filter: "blur(35px)" }}
           />
         </motion.div>
       ))}
@@ -126,8 +129,8 @@ const FloatingClouds = () => {
           key={`bg-cloud-${i}`}
           className="absolute"
           style={{
-            width: 400 + i * 50,
-            height: 200 + i * 25,
+            width: 550 + i * 70,
+            height: 280 + i * 35,
             top: `${10 + i * 25}%`,
             left: "-20%",
             y: parallaxSlow,
@@ -135,7 +138,7 @@ const FloatingClouds = () => {
           }}
           initial={{ opacity: 0 }}
           animate={{
-            opacity: [0, 0.2, 0.25, 0.2, 0],
+            opacity: [0, 0.38, 0.45, 0.38, 0],
           }}
           transition={{
             duration: 90 + i * 15,
@@ -145,8 +148,8 @@ const FloatingClouds = () => {
           }}
         >
           <div 
-            className="w-full h-full bg-gradient-to-r from-white/60 via-white to-white/60 rounded-full"
-            style={{ filter: "blur(40px)" }}
+            className="w-full h-full rounded-full bg-gradient-to-r from-gray-300/70 via-gray-200 to-gray-300/70 dark:from-white/60 dark:via-white dark:to-white/60 drop-shadow-[0_6px_30px_rgba(0,0,0,0.1)] dark:drop-shadow-none"
+            style={{ filter: "blur(45px)" }}
           />
         </motion.div>
       ))}

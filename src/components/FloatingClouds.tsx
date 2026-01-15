@@ -16,18 +16,18 @@ const FloatingClouds = () => {
   const parallaxHorizontalRight = useTransform(scrollY, [0, 1000], [0, 80]);
 
   const clouds = [
-    { id: 1, size: 420, top: "5%", left: "-10%", duration: 80, delay: 0, opacity: 0.55, speed: "fast", horizontal: "left", drift: 25, rotate: 3 },
-    { id: 2, size: 350, top: "15%", left: "20%", duration: 95, delay: 3, opacity: 0.5, speed: "medium", horizontal: "right", drift: 35, rotate: -2 },
-    { id: 3, size: 390, top: "25%", left: "60%", duration: 75, delay: 6, opacity: 0.52, speed: "slow", horizontal: "left", drift: 20, rotate: 4 },
-    { id: 4, size: 310, top: "40%", left: "-5%", duration: 100, delay: 9, opacity: 0.45, speed: "fast", horizontal: "right", drift: 40, rotate: -3 },
-    { id: 5, size: 360, top: "60%", left: "30%", duration: 88, delay: 12, opacity: 0.5, speed: "medium", horizontal: "left", drift: 30, rotate: 2 },
-    { id: 6, size: 340, top: "75%", left: "70%", duration: 92, delay: 4, opacity: 0.52, speed: "slow", horizontal: "right", drift: 28, rotate: -4 },
-    { id: 7, size: 280, top: "10%", left: "80%", duration: 78, delay: 15, opacity: 0.45, speed: "fast", horizontal: "left", drift: 22, rotate: 3 },
-    { id: 8, size: 320, top: "50%", left: "50%", duration: 85, delay: 8, opacity: 0.48, speed: "medium", horizontal: "right", drift: 32, rotate: -2 },
-    { id: 9, size: 380, top: "35%", left: "10%", duration: 82, delay: 2, opacity: 0.5, speed: "slow", horizontal: "left", drift: 26, rotate: 5 },
-    { id: 10, size: 290, top: "70%", left: "45%", duration: 98, delay: 11, opacity: 0.46, speed: "fast", horizontal: "right", drift: 38, rotate: -3 },
-    { id: 11, size: 400, top: "20%", left: "40%", duration: 86, delay: 7, opacity: 0.53, speed: "medium", horizontal: "left", drift: 24, rotate: 2 },
-    { id: 12, size: 270, top: "85%", left: "15%", duration: 105, delay: 14, opacity: 0.44, speed: "slow", horizontal: "right", drift: 34, rotate: -4 },
+    { id: 1, size: 420, top: "5%", left: "-10%", duration: 80, delay: 0, opacity: 0.25, speed: "fast", horizontal: "left", drift: 25, rotate: 3 },
+    { id: 2, size: 350, top: "15%", left: "20%", duration: 95, delay: 3, opacity: 0.22, speed: "medium", horizontal: "right", drift: 35, rotate: -2 },
+    { id: 3, size: 390, top: "25%", left: "60%", duration: 75, delay: 6, opacity: 0.24, speed: "slow", horizontal: "left", drift: 20, rotate: 4 },
+    { id: 4, size: 310, top: "40%", left: "-5%", duration: 100, delay: 9, opacity: 0.2, speed: "fast", horizontal: "right", drift: 40, rotate: -3 },
+    { id: 5, size: 360, top: "60%", left: "30%", duration: 88, delay: 12, opacity: 0.22, speed: "medium", horizontal: "left", drift: 30, rotate: 2 },
+    { id: 6, size: 340, top: "75%", left: "70%", duration: 92, delay: 4, opacity: 0.24, speed: "slow", horizontal: "right", drift: 28, rotate: -4 },
+    { id: 7, size: 280, top: "10%", left: "80%", duration: 78, delay: 15, opacity: 0.2, speed: "fast", horizontal: "left", drift: 22, rotate: 3 },
+    { id: 8, size: 320, top: "50%", left: "50%", duration: 85, delay: 8, opacity: 0.21, speed: "medium", horizontal: "right", drift: 32, rotate: -2 },
+    { id: 9, size: 380, top: "35%", left: "10%", duration: 82, delay: 2, opacity: 0.22, speed: "slow", horizontal: "left", drift: 26, rotate: 5 },
+    { id: 10, size: 290, top: "70%", left: "45%", duration: 98, delay: 11, opacity: 0.2, speed: "fast", horizontal: "right", drift: 38, rotate: -3 },
+    { id: 11, size: 400, top: "20%", left: "40%", duration: 86, delay: 7, opacity: 0.24, speed: "medium", horizontal: "left", drift: 24, rotate: 2 },
+    { id: 12, size: 270, top: "85%", left: "15%", duration: 105, delay: 14, opacity: 0.18, speed: "slow", horizontal: "right", drift: 34, rotate: -4 },
   ];
 
   const getParallaxY = (speed: string) => {
@@ -125,7 +125,7 @@ const FloatingClouds = () => {
           }}
           initial={{ opacity: 0 }}
           animate={{
-            opacity: [0, 0.35, 0.42, 0.38, 0.35, 0],
+            opacity: [0, 0.15, 0.2, 0.17, 0.15, 0],
             scale: [0.95, 1, 1.03, 1.01, 0.98, 0.95],
             rotate: [0, 1, -0.5, 0.8, -0.3, 0],
           }}
@@ -174,7 +174,7 @@ const FloatingClouds = () => {
           }}
           initial={{ opacity: 0 }}
           animate={{
-            opacity: [0, 0.38, 0.45, 0.42, 0.38, 0],
+            opacity: [0, 0.18, 0.22, 0.2, 0.18, 0],
             scale: [0.98, 1, 1.02, 1.01, 0.99, 0.98],
           }}
           transition={{

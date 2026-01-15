@@ -20,7 +20,6 @@ const Header = () => {
   const navItems = [
     { name: "關於我們", href: "/about", isPage: true },
     { name: "服務項目", href: "#services" },
-    { name: "奠禮現場", href: "#gallery" },
     { name: "聯絡我們", href: "#contact" },
   ];
 

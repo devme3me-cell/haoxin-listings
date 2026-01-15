@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import FloatingClouds from "./FloatingClouds";
 
 interface CloudRevealProps {
   children: React.ReactNode;
@@ -18,6 +19,9 @@ const CloudReveal = ({ children }: CloudRevealProps) => {
   return (
     <div className="relative">
       {children}
+      
+      {/* Floating clouds after reveal */}
+      {isRevealed && <FloatingClouds />}
       
       <AnimatePresence>
         {!isRevealed && (

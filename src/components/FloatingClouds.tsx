@@ -74,14 +74,14 @@ const FloatingClouds = () => {
         >
           <svg
             viewBox="0 0 200 120"
-            className="w-full h-full drop-shadow-[0_4px_20px_rgba(0,0,0,0.15)] dark:drop-shadow-none"
-            style={{ filter: "blur(6px)" }}
+            className="w-full h-full drop-shadow-[0_8px_40px_rgba(120,120,120,0.35)] dark:drop-shadow-none transition-[filter] duration-500"
+            style={{ filter: "blur(8px)" }}
           >
             <defs>
               <radialGradient id={`cloud-grad-${cloud.id}`} cx="50%" cy="50%" r="50%">
-                <stop offset="0%" className="[stop-color:rgb(180,180,180)] dark:[stop-color:white]" stopOpacity="0.95" />
-                <stop offset="60%" className="[stop-color:rgb(200,200,200)] dark:[stop-color:white]" stopOpacity="0.6" />
-                <stop offset="100%" className="[stop-color:rgb(220,220,220)] dark:[stop-color:white]" stopOpacity="0" />
+                <stop offset="0%" className="[stop-color:rgb(160,160,160)] dark:[stop-color:white]" stopOpacity="0.9" />
+                <stop offset="50%" className="[stop-color:rgb(185,185,185)] dark:[stop-color:white]" stopOpacity="0.7" />
+                <stop offset="100%" className="[stop-color:rgb(210,210,210)] dark:[stop-color:white]" stopOpacity="0" />
               </radialGradient>
             </defs>
             <ellipse cx="100" cy="70" rx="80" ry="40" fill={`url(#cloud-grad-${cloud.id})`} />
@@ -117,8 +117,8 @@ const FloatingClouds = () => {
           }}
         >
           <div 
-            className="w-full h-full rounded-full bg-gray-300 dark:bg-white drop-shadow-[0_4px_25px_rgba(0,0,0,0.12)] dark:drop-shadow-none"
-            style={{ filter: "blur(35px)" }}
+            className="w-full h-full rounded-full bg-gray-400/80 dark:bg-white drop-shadow-[0_8px_50px_rgba(100,100,100,0.3)] dark:drop-shadow-none transition-[filter] duration-500"
+            style={{ filter: "blur(40px)" }}
           />
         </motion.div>
       ))}
@@ -148,8 +148,8 @@ const FloatingClouds = () => {
           }}
         >
           <div 
-            className="w-full h-full rounded-full bg-gradient-to-r from-gray-300/70 via-gray-200 to-gray-300/70 dark:from-white/60 dark:via-white dark:to-white/60 drop-shadow-[0_6px_30px_rgba(0,0,0,0.1)] dark:drop-shadow-none"
-            style={{ filter: "blur(45px)" }}
+            className="w-full h-full rounded-full bg-gradient-to-r from-gray-400/60 via-gray-300 to-gray-400/60 dark:from-white/60 dark:via-white dark:to-white/60 drop-shadow-[0_12px_60px_rgba(100,100,100,0.25)] dark:drop-shadow-none transition-[filter] duration-500"
+            style={{ filter: "blur(50px)" }}
           />
         </motion.div>
       ))}

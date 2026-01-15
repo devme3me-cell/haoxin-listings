@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-memorial.jpg";
 const Hero = () => {
-  return <section id="home" className="relative min-h-screen flex items-center">
+  return <section id="home" className="relative min-h-screen flex items-center dark">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img src={heroImage} alt="壕芯實業禮儀服務" className="w-full h-full object-cover" />

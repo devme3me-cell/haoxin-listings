@@ -3,7 +3,7 @@ import service2 from "@/assets/service-2.jpg";
 import service3 from "@/assets/service-3.jpg";
 const services = [{
   number: "01",
-  title: "代銷生基",
+  title: "專業服務",
   description: "提供專業生基服務，包含造生基、代銷生基、生基承租等完整服務，助您趨吉避凶、開運祈福。",
   image: service1
 }, {

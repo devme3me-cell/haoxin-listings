@@ -7,10 +7,12 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CloudReveal from "@/components/CloudReveal";
+import Preloader from "@/components/Preloader";
 
 const Index = () => {
   return (
-    <CloudReveal>
+    <Preloader duration={3500}>
+      <CloudReveal>
       <div className="min-h-screen">
         <Header />
         <Hero />
@@ -21,7 +23,8 @@ const Index = () => {
         <Contact />
         <Footer />
       </div>
-    </CloudReveal>
+      </CloudReveal>
+    </Preloader>
   );
 };
 

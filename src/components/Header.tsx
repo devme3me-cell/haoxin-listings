@@ -3,12 +3,14 @@ import { Menu, X, Phone } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 import { motion } from "framer-motion";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const { scrollToElement } = useSmoothScroll();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,9 +26,14 @@ const Header = () => {
     { name: "聯絡我們", href: "#contact" },
   ];
 
-  const handleNavClick = (href: string, isPage?: boolean) => {
+  const handleNavClick = (e: React.MouseEvent, href: string, isPage?: boolean) => {
     if (isPage) return;
-    if (!isHomePage && href.startsWith("#")) {
+    
+    if (isHomePage && href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.slice(1);
+      scrollToElement(targetId, { duration: 1000, easing: "easeInOutCubic" });
+    } else if (!isHomePage && href.startsWith("#")) {
       window.location.href = "/" + href;
     }
   };
@@ -80,7 +87,7 @@ const Header = () => {
                 <a
                   key={item.name}
                   href={isHomePage ? item.href : "/" + item.href}
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="text-sm tracking-wider hover:text-primary transition-colors"
                 >
                   {item.name}
@@ -133,7 +140,10 @@ const Header = () => {
                   <a
                     key={item.name}
                     href={isHomePage ? item.href : "/" + item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      handleNavClick(e, item.href);
+                      setIsMobileMenuOpen(false);
+                    }}
                     className="block text-lg tracking-wider hover:text-primary transition-colors"
                   >
                     {item.name}

@@ -13,7 +13,7 @@ const Hero = () => {
         <div className="max-w-2xl">
           
           
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-light leading-tight mb-8 animate-slide-up">
+          <h1 className="text-4xl md:text-5xl font-heading leading-tight mb-8 animate-slide-up lg:text-6xl font-semibold">
             壕芯實業
           </h1>
           

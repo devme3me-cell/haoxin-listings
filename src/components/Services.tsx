@@ -54,25 +54,6 @@ const Services = () => {
             </div>)}
         </div>
 
-        {/* Additional Services */}
-        <div className="mt-16 lg:mt-24 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[{
-          icon: "🏺",
-          title: "代銷骨灰罈"
-        }, {
-          icon: "⚱️",
-          title: "代銷內膽"
-        }, {
-          icon: "🕯️",
-          title: "科儀服務"
-        }, {
-          icon: "💜",
-          title: "心靈療癒諮詢"
-        }].map(item => <div key={item.title} className="flex items-center gap-4 p-6 bg-background border border-border hover:border-warm-gold/50 transition-colors duration-300">
-              <span className="text-2xl">{item.icon}</span>
-              <span className="font-heading text-lg tracking-wide">{item.title}</span>
-            </div>)}
-        </div>
 
         {/* Additional Service Row */}
         <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">

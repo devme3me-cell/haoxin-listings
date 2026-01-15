@@ -21,7 +21,7 @@ const About = () => {
           {/* Images */}
           <div className="relative">
             <div className="image-reveal">
-              <img alt="禮儀服務" className="w-full aspect-[4/5] object-cover" src="/lovable-uploads/31143c30-e9b7-4a65-a841-99cc56880fbb.jpg" />
+              <img alt="禮儀服務" className="w-full aspect-[4/5] object-cover" src="/lovable-uploads/ab5ad6b0-2fc4-43d2-8361-78879f00b38c.png" />
             </div>
             <div className="absolute -bottom-8 -right-8 w-2/3 image-reveal hidden md:block">
               <img src={gallery4} alt="接待大廳" className="w-full aspect-square object-cover border-8 border-background shadow-2xl" />

@@ -6,19 +6,22 @@ import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CloudReveal from "@/components/CloudReveal";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <Hero />
-      <Services />
-      <About />
-      <Gallery />
-      <Testimonials />
-      <Contact />
-      <Footer />
-    </div>
+    <CloudReveal>
+      <div className="min-h-screen">
+        <Header />
+        <Hero />
+        <Services />
+        <About />
+        <Gallery />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </div>
+    </CloudReveal>
   );
 };
 

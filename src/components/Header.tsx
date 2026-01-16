@@ -106,11 +106,11 @@ const Header = () => {
           {/* Contact & Mobile Menu */}
           <div className="flex items-center gap-4">
             <a
-              href="tel:02-2233-0000"
+              href="tel:02-22425697"
               className="hidden md:flex items-center gap-2 text-sm tracking-wider hover:text-primary transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span>02-2233-0000</span>
+              <span>02-22425697</span>
             </a>
 
             <ThemeToggle />
@@ -158,11 +158,11 @@ const Header = () => {
                 )
               )}
               <a
-                href="tel:02-2233-0000"
+                href="tel:02-22425697"
                 className="flex items-center gap-2 text-lg tracking-wider text-primary"
               >
                 <Phone className="w-5 h-5" />
-                <span>02-2233-0000</span>
+                <span>02-22425697</span>
               </a>
             </div>
           </nav>

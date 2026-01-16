@@ -48,7 +48,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between">
-          {/* Logo with gold shimmer */}
+          {/* Logo with gold shimmer - hidden at top, appears on scroll */}
           <Link to="/" className="flex flex-col items-start group">
             <motion.span 
               className="text-xl md:text-2xl font-heading font-semibold tracking-wider relative overflow-hidden"
@@ -59,13 +59,20 @@ const Header = () => {
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
               }}
+              initial={{ opacity: 0, y: -10 }}
               animate={{
+                opacity: isScrolled ? 1 : 0,
+                y: isScrolled ? 0 : -10,
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{
-                duration: 4,
-                ease: "easeInOut",
-                repeat: Infinity,
+                opacity: { duration: 0.3, ease: "easeOut" },
+                y: { duration: 0.3, ease: "easeOut" },
+                backgroundPosition: {
+                  duration: 4,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                },
               }}
             >
               壕芯實業

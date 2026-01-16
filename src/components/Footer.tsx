@@ -10,11 +10,9 @@ const Footer = () => {
               <span className="text-2xl font-heading font-semibold tracking-wider">
                 壕芯實業
               </span>
-              <span className="block text-xs tracking-[0.3em] text-muted-foreground mt-1">
-                HAO XIN ENTERPRISE
-              </span>
+              
             </div>
-            <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
+            <p className="text-muted-foreground leading-relaxed max-w-md mb-6 text-sm">
               主要以服務殯葬禮儀、代銷殯葬商品、生基科儀、法會等服務，秉持著「以客為尊」的企業精神服務每一位客戶，提供高規格高品質的優良服務。
             </p>
             <a href="tel:02-2233-0000" className="inline-flex items-center gap-2 text-foreground hover:text-warm-gold transition-colors">

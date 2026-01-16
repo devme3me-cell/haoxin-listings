@@ -37,9 +37,9 @@ const Hero = () => {
             壕芯實業
           </motion.h1>
           
-          <p className="md:text-xl text-muted-foreground mb-6 max-w-xl animate-slide-up leading-relaxed text-sm my-[96px]" style={{
-          animationDelay: "0.2s"
-        }}>代銷塔位、生前契約、骨灰罈、內膽等相關諮詢之代銷服務;生基、造生基、代銷生基、生基承租、科儀等服務</p>
+          <p className="md:text-xl text-muted-foreground mb-6 max-w-xl animate-slide-up leading-relaxed text-sm mt-[96px] mb-[120px]" style={{
+            animationDelay: "0.2s"
+          }}>代銷塔位、生前契約、骨灰罈、內膽等相關諮詢之代銷服務;生基、造生基、代銷生基、生基承租、科儀等服務</p>
           
 
           <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{

@@ -3,9 +3,17 @@ import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-memorial.jpg";
 const Hero = () => {
   return <section id="home" className="relative min-h-screen flex items-center dark">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img src={heroImage} alt="壕芯實業禮儀服務" className="w-full h-full object-cover" />
+      {/* Background Image with Fixed Parallax */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${heroImage})`,
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
       </div>
 

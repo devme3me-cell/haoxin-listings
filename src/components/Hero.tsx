@@ -1,13 +1,35 @@
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import heroImage from "@/assets/hero-memorial.jpg";
+
 const Hero = () => {
-  return <section id="home" className="relative min-h-screen flex items-center dark">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img src={heroImage} alt="壕芯實業禮儀服務" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
-      </div>
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"]
+  });
+  
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.3]);
+
+  return <section ref={sectionRef} id="home" className="relative min-h-screen flex items-center dark overflow-hidden">
+      {/* Background Image with Parallax */}
+      <motion.div 
+        className="absolute inset-0 z-0"
+        style={{ 
+          y: backgroundY,
+          willChange: "transform"
+        }}
+      >
+        <motion.img 
+          src={heroImage} 
+          alt="壕芯實業禮儀服務" 
+          className="w-full h-[120%] object-cover"
+          style={{ opacity }}
+        />
+      </motion.div>
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
 
       {/* Content */}
       <div className="container relative z-10 px-6 lg:px-12 pt-24">

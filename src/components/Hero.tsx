@@ -51,12 +51,12 @@ const Hero = () => {
           <motion.h1 
             className="text-4xl md:text-5xl font-heading leading-tight mb-8 animate-slide-up font-semibold lg:text-7xl relative" 
             style={{
-              background: "linear-gradient(90deg, hsl(38, 70%, 50%) 0%, hsl(45, 90%, 75%) 20%, hsl(50, 95%, 80%) 40%, hsl(45, 90%, 75%) 60%, hsl(38, 70%, 50%) 80%, hsl(45, 85%, 70%) 100%)",
+              background: "linear-gradient(90deg, hsl(45, 100%, 95%) 0%, hsl(50, 100%, 85%) 20%, hsl(55, 100%, 90%) 40%, hsl(50, 100%, 85%) 60%, hsl(45, 100%, 95%) 80%, hsl(48, 100%, 88%) 100%)",
               backgroundSize: "300% 100%",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
-              textShadow: "0 0 40px hsla(45, 80%, 60%, 0.3)",
+              textShadow: "0 0 60px hsla(45, 100%, 70%, 0.5), 0 0 120px hsla(45, 100%, 60%, 0.3)",
               willChange: "background-position",
             }} 
             animate={{

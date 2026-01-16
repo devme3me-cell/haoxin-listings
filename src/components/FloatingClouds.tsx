@@ -5,8 +5,8 @@ const FloatingClouds = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
 
-  // Fade out clouds as user scrolls past hero
-  const containerOpacity = useTransform(scrollY, [0, 600, 1200], [1, 0.7, 0]);
+  // Fade out clouds quickly as user scrolls
+  const containerOpacity = useTransform(scrollY, [0, 200, 500], [1, 0.3, 0]);
 
   // Optimized parallax with reduced calculation
   const parallaxSlow = useTransform(scrollY, [0, 1000], [0, -50]);

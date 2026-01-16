@@ -240,7 +240,7 @@ const ServiceDetail = () => {
                   <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-border z-0" />
                 )}
 
-                <div className="relative z-10 bg-background">
+              <div className="relative z-10 bg-background text-center flex flex-col items-center">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-2xl font-heading mb-6"

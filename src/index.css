@@ -104,11 +104,14 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -117,6 +120,13 @@
 
   img {
     @apply rounded-xl;
+  }
+
+  /* GPU acceleration for animated elements */
+  .gpu-accelerate {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
   }
 }
 
@@ -132,11 +142,13 @@
   }
   
   .card-hover {
-    @apply transition-all duration-500 ease-out;
+    @apply transition-transform duration-500;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
   }
   
   .card-hover:hover {
-    @apply -translate-y-2;
+    transform: translate3d(0, -8px, 0);
   }
   
   .text-balance {
@@ -148,11 +160,13 @@
   }
   
   .image-reveal img {
-    @apply transition-transform duration-700 ease-out;
+    @apply transition-transform duration-700;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
   }
   
   .image-reveal:hover img {
-    @apply scale-105;
+    transform: scale3d(1.05, 1.05, 1);
   }
   
   .btn-arrow {
@@ -207,15 +221,18 @@
 
 @layer utilities {
   .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
+    animation: fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    will-change: opacity;
   }
   
   .animate-slide-up {
-    animation: slideUp 0.8s ease-out forwards;
+    animation: slideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    will-change: opacity, transform;
   }
   
   .animate-slide-left {
-    animation: slideLeft 0.6s ease-out forwards;
+    animation: slideLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    will-change: opacity, transform;
   }
 
   @keyframes fadeIn {
@@ -230,26 +247,31 @@
   @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translateY(40px);
+      transform: translate3d(0, 40px, 0);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
   }
   
   @keyframes slideLeft {
     from {
       opacity: 0;
-      transform: translateX(40px);
+      transform: translate3d(40px, 0, 0);
     }
     to {
       opacity: 1;
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
   }
 
-  /* Animated favicon pulse effect via CSS - applied to html for favicon animation simulation */
+  /* Smooth transitions utility */
+  .smooth-transition {
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Animated favicon pulse effect via CSS */
   @keyframes faviconPulse {
     0%, 100% {
       filter: brightness(1);

@@ -1,3 +1,11 @@
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
+
 const testimonials = [
   {
     title: "專業諮詢篇：解決複雜產權",
@@ -50,29 +58,40 @@ const Testimonials = () => {
           <h2 className="section-heading">客 戶 感 言</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-background/80 backdrop-blur-sm p-6 lg:p-8 relative border border-border/50 hover:border-warm-gold/30 transition-colors duration-300"
-            >
-              {/* Quote Mark */}
-              <div className="text-5xl font-heading text-warm-gold/30 absolute top-3 left-5">
-                "
-              </div>
-              
-              {/* Title */}
-              <div className="pt-6 mb-4">
-                <h3 className="text-warm-gold font-heading text-base font-medium">
-                  【{testimonial.title}】
-                </h3>
-              </div>
-              
-              <blockquote className="text-sm leading-relaxed text-muted-foreground">
-                {testimonial.quote}
-              </blockquote>
-            </div>
-          ))}
+        <div className="px-12">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <div className="bg-background/80 backdrop-blur-sm p-6 lg:p-8 relative border border-border/50 hover:border-warm-gold/30 transition-colors duration-300 h-full">
+                    {/* Quote Mark */}
+                    <div className="text-5xl font-heading text-warm-gold/30 absolute top-3 left-5">
+                      "
+                    </div>
+                    
+                    {/* Title */}
+                    <div className="pt-6 mb-4">
+                      <h3 className="text-warm-gold font-heading text-base font-medium">
+                        【{testimonial.title}】
+                      </h3>
+                    </div>
+                    
+                    <blockquote className="text-sm leading-relaxed text-muted-foreground">
+                      {testimonial.quote}
+                    </blockquote>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="border-warm-gold/50 text-warm-gold hover:bg-warm-gold hover:text-background" />
+            <CarouselNext className="border-warm-gold/50 text-warm-gold hover:bg-warm-gold hover:text-background" />
+          </Carousel>
         </div>
       </div>
     </section>

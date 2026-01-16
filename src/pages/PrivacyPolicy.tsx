@@ -17,7 +17,7 @@ const PrivacyPolicy = () => {
           
           <div className="prose prose-lg max-w-none text-muted-foreground space-y-8">
             <p className="text-lg leading-relaxed">
-              「壕芯實業」（以下簡稱「本公司」或「我們」）非常重視您的隱私權。為了確保您在瀏覽本網站（https://haoxin.lovable.app，以下簡稱「本網站」）時，能瞭解我們如何蒐集、處理及利用您的個人資料，特此制定本隱私權保護政策（以下簡稱「本政策」）。
+              「壕芯實業」（以下簡稱「本公司」或「我們」）非常重視您的隱私權。為了確保您在瀏覽本網站（https://hshin.tw，以下簡稱「本網站」）時，能瞭解我們如何蒐集、處理及利用您的個人資料，特此制定本隱私權保護政策（以下簡稱「本政策」）。
             </p>
             <p className="leading-relaxed">
               請您詳閱以下內容，當您繼續使用本網站服務時，即視為您已充分瞭解並同意本政策之所有條款。

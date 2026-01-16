@@ -19,7 +19,7 @@ const TermsOfService = () => {
             <section className="space-y-4">
               <h2 className="font-heading text-xl md:text-2xl text-foreground">一、條款之接受與修改</h2>
               <p className="leading-relaxed">
-                歡迎使用「壕芯實業」（以下簡稱「本公司」）官方網站（https://haoxin.lovable.app，以下簡稱「本網站」）。當您瀏覽或使用本網站之服務時，即視為您已閱讀、瞭解並同意接受本服務條款。本公司有權隨時修改條款，修訂後內容公告於網站即生效，建議您定期查看。
+                歡迎使用「壕芯實業」（以下簡稱「本公司」）官方網站（https://hshin.tw，以下簡稱「本網站」）。當您瀏覽或使用本網站之服務時，即視為您已閱讀、瞭解並同意接受本服務條款。本公司有權隨時修改條款，修訂後內容公告於網站即生效，建議您定期查看。
               </p>
             </section>
 

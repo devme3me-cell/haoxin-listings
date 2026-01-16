@@ -14,7 +14,7 @@ const Disclaimer = () => {
           
           <div className="prose prose-lg max-w-none text-muted-foreground space-y-8">
             <p className="text-lg leading-relaxed">
-              歡迎瀏覽「壕芯實業」官方網站（網址：https://haoxin.lovable.app，以下簡稱「本網站」）。當您開始使用本網站時，即表示您已閱讀、瞭解並同意接受本免責聲明之所有內容：
+              歡迎瀏覽「壕芯實業」官方網站（網址：https://hshin.tw，以下簡稱「本網站」）。當您開始使用本網站時，即表示您已閱讀、瞭解並同意接受本免責聲明之所有內容：
             </p>
             
             <section className="space-y-4">

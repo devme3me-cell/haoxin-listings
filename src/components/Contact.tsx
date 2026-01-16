@@ -35,7 +35,7 @@ const Contact = () => {
                 <Phone className="w-5 h-5 mt-1 opacity-70" />
                 <div>
                   <p className="text-sm opacity-70 mb-1">聯絡專線</p>
-                  <p className="text-xl font-heading">02-2233-0000</p>
+                  <p className="text-xl font-heading">02-22425697</p>
                 </div>
               </div>
               
@@ -43,7 +43,7 @@ const Contact = () => {
                 <Mail className="w-5 h-5 mt-1 opacity-70" />
                 <div>
                   <p className="text-sm opacity-70 mb-1">電子郵件</p>
-                  <p className="text-lg">service@haoxin.com.tw</p>
+                  <p className="text-lg">sam0292@gmail.com</p>
                 </div>
               </div>
               

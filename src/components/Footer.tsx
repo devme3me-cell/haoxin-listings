@@ -15,9 +15,9 @@ const Footer = () => {
             <p className="text-muted-foreground leading-relaxed max-w-md mb-6 text-sm">
               主要以服務殯葬禮儀、代銷殯葬商品、生基科儀、法會等服務，秉持著「以客為尊」的企業精神服務每一位客戶，提供高規格高品質的優良服務。
             </p>
-            <a href="tel:02-2233-0000" className="inline-flex items-center gap-2 text-foreground hover:text-warm-gold transition-colors">
+            <a href="tel:02-22425697" className="inline-flex items-center gap-2 text-foreground hover:text-warm-gold transition-colors">
               <Phone className="w-4 h-4" />
-              <span className="font-heading text-lg">02-2233-0000</span>
+              <span className="font-heading text-lg">02-22425697</span>
             </a>
           </div>
 
@@ -41,7 +41,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 text-muted-foreground">
               <li>台灣各地均有服務</li>
-              <li>service@haoxin.com.tw</li>
+              <li>sam0292@gmail.com</li>
               <li>週一至週日 09:00-18:00</li>
             </ul>
           </div>

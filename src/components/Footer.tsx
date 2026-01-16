@@ -1,9 +1,7 @@
 import { Phone } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const Footer = () => {
-  return (
-    <footer className="bg-secondary/50 py-16">
+  return <footer className="bg-secondary/50 py-16">
       <div className="container px-6 lg:px-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Logo & Description */}
@@ -19,10 +17,7 @@ const Footer = () => {
             <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
               主要以服務殯葬禮儀、代銷殯葬商品、生基科儀、法會等服務，秉持著「以客為尊」的企業精神服務每一位客戶，提供高規格高品質的優良服務。
             </p>
-            <a
-              href="tel:02-2233-0000"
-              className="inline-flex items-center gap-2 text-foreground hover:text-warm-gold transition-colors"
-            >
+            <a href="tel:02-2233-0000" className="inline-flex items-center gap-2 text-foreground hover:text-warm-gold transition-colors">
               <Phone className="w-4 h-4" />
               <span className="font-heading text-lg">02-2233-0000</span>
             </a>
@@ -56,8 +51,8 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            © 2024 壕芯實業 Hao Xin Enterprise. All rights reserved.
+          <p className="text-muted-foreground text-xs text-center">
+            © 2026  壕芯實業. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <Link to="/privacy" className="hover:text-foreground transition-colors">隱私政策</Link>
@@ -66,8 +61,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;

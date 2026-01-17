@@ -16,10 +16,14 @@ const transactionData = [
   { location: '花蓮縣', name: '謝先生', action: 'buy', product: '靈骨塔位', mask: '' },
 ];
 
-const getRandomTime = () => {
-  const hours = Math.floor(Math.random() * 24);
-  const minutes = Math.floor(Math.random() * 60);
-  return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+const getRandomDate = () => {
+  const today = new Date();
+  const offsetDays = Math.floor(Math.random() * 7) - 3; // -3 to +3 days
+  const randomDate = new Date(today);
+  randomDate.setDate(today.getDate() + offsetDays);
+  const month = (randomDate.getMonth() + 1).toString().padStart(2, '0');
+  const day = randomDate.getDate().toString().padStart(2, '0');
+  return `${month}/${day}`;
 };
 
 interface TransactionCardProps {
@@ -62,7 +66,7 @@ const Contact = () => {
   const cardsWithTime = useMemo(() => {
     return [...transactionData, ...transactionData].map((data, index) => ({
       ...data,
-      time: getRandomTime(),
+      time: getRandomDate(),
       key: index,
     }));
   }, []);

@@ -41,7 +41,7 @@ const Services = () => {
 
               {/* Image */}
               <div className="image-reveal aspect-square mb-6 bg-muted">
-                <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                <img src={service.image} alt={service.title} className="w-full h-full object-cover" loading="lazy" />
               </div>
 
               {/* Content */}

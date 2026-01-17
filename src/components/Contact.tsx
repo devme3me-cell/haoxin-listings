@@ -118,32 +118,39 @@ const Contact = () => {
           </div>
 
           {/* Carousel */}
-          <div className="relative w-full h-[500px] perspective-[1000px]">
+          <div className="gallery relative w-full h-[500px] overflow-hidden" style={{ visibility: 'visible' }}>
             <h3 className="text-center mb-6 text-white/90 text-2xl font-light tracking-widest uppercase">
               即時交易動態
             </h3>
-            <div 
-              className="relative w-full h-full overflow-hidden"
-              style={{
-                maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-              }}
-            >
-              <div 
-                className="absolute w-full flex flex-col gap-5 animate-carousel-scroll hover:[animation-play-state:paused]"
-              >
-                {cardsWithTime.map((data) => (
-                  <TransactionCard
+            <div className="cards absolute w-[300px] h-[150px] top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2">
+              <ul className="relative w-full h-full">
+                {cardsWithTime.slice(0, 6).map((data, index) => (
+                  <li
                     key={data.key}
-                    location={data.location}
-                    name={data.name}
-                    action={data.action as 'sell' | 'buy'}
-                    product={data.product}
-                    mask={data.mask}
-                    time={data.time}
-                  />
+                    className="list-none p-0 m-0 w-[300px] h-[150px] text-center leading-[150px] font-sans absolute top-0 left-0 rounded-[0.8rem] flex flex-col justify-center items-center"
+                    style={{
+                      backgroundColor: data.action === 'sell' ? '#f59e0b' : '#10b981',
+                      zIndex: cardsWithTime.length - index,
+                      transform: `translateY(${index * 8}px) scale(${1 - index * 0.05})`,
+                      opacity: 1 - index * 0.15,
+                    }}
+                  >
+                    <div className="flex flex-col items-center justify-center h-full leading-normal p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-sm text-white/80 font-medium">{data.location}</span>
+                        <span className="text-base text-white font-semibold">{data.name}</span>
+                      </div>
+                      <span className="px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-white/20 text-white mb-2">
+                        {data.action === 'sell' ? '出售' : '收購'}
+                      </span>
+                      <span className="text-white/90 font-bold text-lg">
+                        {data.product || data.mask}
+                      </span>
+                      <span className="text-[11px] text-white/50 mt-1">{data.time}</span>
+                    </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </div>

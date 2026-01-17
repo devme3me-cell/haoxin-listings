@@ -118,7 +118,7 @@ const Contact = () => {
           </div>
 
           {/* Carousel */}
-          <div className="relative w-full h-[500px] perspective-[1000px] p-8">
+          <div className="relative w-full h-[500px] perspective-[1000px]">
             <h3 className="text-center mb-6 text-white/90 text-2xl font-light tracking-widest uppercase">
               即時交易動態
             </h3>

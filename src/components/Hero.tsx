@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import heroImage from "@/assets/hero-memorial.jpg";
+import heroImage from "@/assets/hero-memorial.webp";
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const {

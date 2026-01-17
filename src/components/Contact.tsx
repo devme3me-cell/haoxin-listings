@@ -68,7 +68,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <section id="contact" data-theme="light" className="light py-24 lg:py-32 bg-primary text-primary-foreground" style={{ colorScheme: 'light' }}>
+    <section id="contact" className="py-24 lg:py-32 bg-[#1a1a2e] text-white">
       <div className="container px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left Content */}

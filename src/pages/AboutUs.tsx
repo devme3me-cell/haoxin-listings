@@ -67,9 +67,6 @@ const AboutUs = () => {
               <span className="text-lg font-heading font-semibold tracking-wider">
                 壕芯實業
               </span>
-              <span className="text-[10px] tracking-[0.2em] text-muted-foreground">
-                HAO XIN ENTERPRISE
-              </span>
             </Link>
             <div className="w-20" />
           </div>

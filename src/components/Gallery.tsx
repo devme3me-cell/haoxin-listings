@@ -50,18 +50,6 @@ const Gallery = () => {
                     alt={item.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-transparent flex items-center justify-center">
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileHover={{ opacity: 1, scale: 1 }}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    >
-                      <div className="w-12 h-12 rounded-full bg-warm-gold flex items-center justify-center">
-                        <ArrowRight className="w-5 h-5 text-foreground" />
-                      </div>
-                    </motion.div>
-                  </div>
                 </div>
                 <div className="p-4 text-center">
                   <h4 className="text-lg font-heading group-hover:text-primary transition-colors duration-300">

@@ -28,7 +28,7 @@ const Services = () => {
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-          {services.map((service, index) => <div key={service.number} className="group bg-background p-8 card-hover" style={{
+          {services.map((service, index) => <div key={service.number} className="group bg-background p-8 card-hover rounded-lg" style={{
           animationDelay: `${index * 0.1}s`
         }}>
               {/* Number */}

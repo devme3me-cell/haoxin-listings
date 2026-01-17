@@ -11,8 +11,11 @@
     <link rel="preconnect" href="https://s.web66.com.tw" />
     <link rel="preconnect" href="https://arielhsu.tw" />
     
-    <!-- Preload critical font CSS -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" />
+    <!-- Non-blocking font loading for better FCP -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" />
+    </noscript>
     
     <title>壕芯實業 | 專業代銷塔位、生基、骨灰罈、科儀服務</title>
     <meta name="description" content="壕芯實業提供代銷塔位、生前契約、骨灰罈、內膽、生基、造生基、科儀等專業殯葬服務。中式、西式、主題式禮儀殯葬服務，以客為尊，品質保證。">

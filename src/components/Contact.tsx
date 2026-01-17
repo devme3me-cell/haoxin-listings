@@ -36,24 +36,24 @@ const TransactionCard = ({ location, name, action, product, mask, time }: Transa
   const productDisplay = product || mask;
 
   return (
-    <div className="w-full p-4 bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-xl transition-all duration-300 cursor-pointer relative overflow-hidden hover:translate-x-3 hover:scale-[1.05] hover:bg-white/[0.12] hover:border-primary/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4),0_0_20px_rgba(99,102,241,0.2)] group">
-      <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-[left] duration-500 group-hover:left-full" />
-      <div className="flex justify-between items-center mb-2">
-        <div className="flex items-center gap-2">
-          <span className={`inline-block w-1.5 h-1.5 rounded-full animate-pulse ${action === 'sell' ? 'bg-amber-500 shadow-[0_0_8px_#f59e0b]' : 'bg-emerald-500 shadow-[0_0_8px_#10b981]'}`} />
-          <span className="text-xs text-white/50 font-medium tracking-wide">{location}</span>
-          <span className="text-sm text-white/90 font-semibold">{name}</span>
+    <div className="w-full p-6 bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-2xl transition-all duration-400 cursor-pointer relative overflow-hidden hover:translate-x-2 hover:scale-[1.02] hover:bg-white/[0.08] hover:border-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_40px_rgba(99,102,241,0.1)] group">
+      <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent transition-[left] duration-600 group-hover:left-full" />
+      <div className="flex justify-between items-center mb-3">
+        <div className="flex items-center gap-3">
+          <span className={`inline-block w-2 h-2 rounded-full animate-pulse ${action === 'sell' ? 'bg-amber-500 shadow-[0_0_10px_#f59e0b]' : 'bg-emerald-500 shadow-[0_0_10px_#10b981]'}`} />
+          <span className="text-sm text-white/50 font-medium tracking-wide">{location}</span>
+          <span className="text-base text-white/90 font-semibold">{name}</span>
         </div>
-        <span className={`px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase ${action === 'sell' ? 'bg-gradient-to-br from-amber-500 to-amber-600 text-[#1a1a2e] shadow-[0_4px_15px_rgba(245,158,11,0.3)]' : 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-[#1a1a2e] shadow-[0_4px_15px_rgba(16,185,129,0.3)]'}`}>
+        <span className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase ${action === 'sell' ? 'bg-gradient-to-br from-amber-500 to-amber-600 text-[#1a1a2e] shadow-[0_4px_15px_rgba(245,158,11,0.3)]' : 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-[#1a1a2e] shadow-[0_4px_15px_rgba(16,185,129,0.3)]'}`}>
           {actionText}
         </span>
       </div>
-      <div className="flex items-center gap-2">
-        <span className={mask ? 'text-xs text-white/30 tracking-widest' : 'text-sm text-white/95 font-bold tracking-wide'}>
+      <div className="flex items-center gap-2.5">
+        <span className={mask ? 'text-sm text-white/30 tracking-widest' : 'text-lg text-white/95 font-bold tracking-wide'}>
           {productDisplay}
         </span>
       </div>
-      <span className="absolute bottom-2 right-3 text-[10px] text-white/25">{time}</span>
+      <span className="absolute bottom-3 right-4 text-[11px] text-white/25">{time}</span>
     </div>
   );
 };

@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
-import ServiceDetail from "./pages/ServiceDetail";
 import AboutUs from "./pages/AboutUs";
 import Disclaimer from "./pages/Disclaimer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -23,7 +22,6 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/service/:id" element={<ServiceDetail />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/disclaimer" element={<Disclaimer />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />

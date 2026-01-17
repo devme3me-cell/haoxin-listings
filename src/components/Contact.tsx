@@ -130,7 +130,7 @@ const Contact = () => {
               }}
             >
               <div 
-                className="absolute w-full flex flex-col gap-5 animate-carousel-scroll hover:[animation-play-state:paused]"
+                className="absolute w-full flex flex-col items-center gap-5 animate-carousel-scroll hover:[animation-play-state:paused]"
               >
                 {cardsWithTime.map((data) => (
                   <TransactionCard

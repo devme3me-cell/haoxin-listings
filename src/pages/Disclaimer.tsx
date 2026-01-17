@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
 
 const Disclaimer = () => {
   return (
@@ -48,6 +49,7 @@ const Disclaimer = () => {
         </div>
       </main>
       
+      <Contact />
       <Footer />
     </div>
   );

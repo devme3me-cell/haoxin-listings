@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Phone } from "lucide-react";
 import { getServiceById, serviceItems } from "@/data/serviceData";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
 
 const ServiceDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -335,6 +336,7 @@ const ServiceDetail = () => {
         </div>
       </section>
 
+      <Contact />
       <Footer />
     </div>
   );

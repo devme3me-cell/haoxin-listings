@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Heart, Shield, Award, Users } from "lucide-react";
+import Contact from "@/components/Contact";
 const AboutUs = () => {
   const fadeInUp = {
     hidden: {
@@ -246,6 +247,9 @@ const AboutUs = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Contact Section */}
+      <Contact />
 
       {/* Footer */}
       <footer className="py-12 border-t border-border">

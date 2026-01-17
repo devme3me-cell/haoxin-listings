@@ -1,12 +1,12 @@
-import serviceKeyi from "@/assets/service-keyi.jpg";
-import serviceKaiyun from "@/assets/service-kaiyun.jpg";
-import serviceShengjiGuan from "@/assets/service-shengji-guan.jpg";
-import servicePaiwei from "@/assets/service-paiwei-new.jpg";
-import serviceShengji from "@/assets/service-shengji.jpg";
-import serviceTawei from "@/assets/service-tawei.jpg";
-import serviceGuhuitan from "@/assets/service-guhuitan.jpg";
-import serviceNeidan from "@/assets/service-neidan.jpg";
-import serviceContract from "@/assets/service-contract.jpg";
+import serviceKeyi from "@/assets/service-keyi.webp";
+import serviceKaiyun from "@/assets/service-kaiyun.webp";
+import serviceShengjiGuan from "@/assets/service-shengji-guan.webp";
+import servicePaiwei from "@/assets/service-paiwei-new.webp";
+import serviceShengji from "@/assets/service-shengji.webp";
+import serviceTawei from "@/assets/service-tawei.webp";
+import serviceGuhuitan from "@/assets/service-guhuitan.webp";
+import serviceNeidan from "@/assets/service-neidan.webp";
+import serviceContract from "@/assets/service-contract.webp";
 
 export interface ServiceItem {
   id: string;

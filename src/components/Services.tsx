@@ -1,6 +1,6 @@
-import serviceProfessional from "@/assets/service-professional.jpg";
-import serviceIntegrity from "@/assets/service-integrity.jpg";
-import serviceCaring from "@/assets/service-caring.jpg";
+import serviceProfessional from "@/assets/service-professional.webp";
+import serviceIntegrity from "@/assets/service-integrity.webp";
+import serviceCaring from "@/assets/service-caring.webp";
 const services = [{
   number: "01",
   title: "專業服務",

@@ -36,24 +36,24 @@ const TransactionCard = ({ location, name, action, product, mask, time }: Transa
   const productDisplay = product || mask;
 
   return (
-    <div className="w-full p-6 bg-white/[0.03] backdrop-blur-[20px] border border-white/[0.08] rounded-2xl transition-all duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer relative overflow-hidden hover:translate-x-2 hover:scale-[1.02] hover:bg-white/[0.08] hover:border-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_40px_rgba(99,102,241,0.1)] group">
+    <div className="w-full p-4 md:p-6 bg-white/[0.03] backdrop-blur-[20px] border border-white/[0.08] rounded-2xl transition-all duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer relative overflow-hidden hover:translate-x-2 hover:scale-[1.02] hover:bg-white/[0.08] hover:border-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_40px_rgba(99,102,241,0.1)] group">
       <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent transition-[left] duration-[600ms] ease-linear group-hover:left-full" />
-      <div className="flex justify-between items-center mb-3">
-        <div className="flex items-center gap-3">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
+        <div className="flex items-center gap-2 md:gap-3 flex-wrap">
           <span className={`inline-block w-2 h-2 rounded-full animate-[pulse_2s_ease-in-out_infinite] ${action === 'sell' ? 'bg-amber-500 shadow-[0_0_10px_#f59e0b]' : 'bg-emerald-500 shadow-[0_0_10px_#10b981]'}`} />
-          <span className="text-sm text-white/50 font-medium tracking-[0.5px]">{location}</span>
-          <span className="text-base text-white/90 font-semibold">{name}</span>
+          <span className="text-xs md:text-sm text-white/50 font-medium tracking-[0.5px]">{location}</span>
+          <span className="text-sm md:text-base text-white/90 font-semibold">{name}</span>
         </div>
-        <span className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-[1px] uppercase ${action === 'sell' ? 'bg-gradient-to-br from-amber-500 to-amber-600 text-[#1a1a2e] shadow-[0_4px_15px_rgba(245,158,11,0.3)]' : 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-[#1a1a2e] shadow-[0_4px_15px_rgba(16,185,129,0.3)]'}`}>
+        <span className={`px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full text-[10px] md:text-xs font-semibold tracking-[1px] uppercase ${action === 'sell' ? 'bg-gradient-to-br from-amber-500 to-amber-600 text-[#1a1a2e] shadow-[0_4px_15px_rgba(245,158,11,0.3)]' : 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-[#1a1a2e] shadow-[0_4px_15px_rgba(16,185,129,0.3)]'}`}>
           {actionText}
         </span>
       </div>
       <div className="flex items-center gap-2.5">
-        <span className={mask ? 'text-sm text-white/30 tracking-[2px]' : 'text-lg text-white/95 font-bold tracking-[1px]'}>
+        <span className={mask ? 'text-xs md:text-sm text-white/30 tracking-[2px]' : 'text-base md:text-lg text-white/95 font-bold tracking-[1px]'}>
           {productDisplay}
         </span>
       </div>
-      <span className="absolute bottom-3 right-4 text-[11px] text-white/25">{time}</span>
+      <span className="absolute bottom-2 md:bottom-3 right-3 md:right-4 text-[10px] md:text-[11px] text-white/25">{time}</span>
     </div>
   );
 };
@@ -118,8 +118,8 @@ const Contact = () => {
           </div>
 
           {/* Carousel */}
-          <div className="relative w-[460px] h-[500px] perspective-[1000px] py-5">
-            <h2 className="text-center mb-8 text-white/90 text-2xl font-light tracking-[4px] uppercase">
+          <div className="relative w-full max-w-[460px] mx-auto h-[500px] perspective-[1000px] py-5">
+            <h2 className="text-center mb-8 text-white/90 text-xl md:text-2xl font-light tracking-[4px] uppercase">
               即時交易動態
             </h2>
             <div 
@@ -130,7 +130,7 @@ const Contact = () => {
               }}
             >
               <div 
-                className="absolute w-full flex flex-col gap-5 px-[30px] py-[10px] animate-carousel-scroll hover:[animation-play-state:paused]"
+                className="absolute w-full flex flex-col gap-5 px-4 md:px-[30px] py-[10px] animate-carousel-scroll hover:[animation-play-state:paused]"
               >
                 {cardsWithTime.map((data) => (
                   <TransactionCard

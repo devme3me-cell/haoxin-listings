@@ -18,20 +18,29 @@ const Hero = () => {
       y: backgroundY,
       willChange: "transform"
     }}>
-        <motion.img src={heroImage} alt="壕芯實業禮儀服務" className="w-full h-[120%] object-cover" style={{
-        opacity
-      }} initial={{
-        scale: 1
-      }} animate={{
-        scale: [1, 1.08, 1],
-        x: [0, 15, 0],
-        y: [0, -10, 0]
-      }} transition={{
-        duration: 25,
-        ease: "easeInOut",
-        repeat: Infinity,
-        repeatType: "reverse"
-      }} />
+        <motion.img 
+          src={heroImage} 
+          alt="壕芯實業禮儀服務" 
+          className="w-full h-[120%] object-cover" 
+          fetchPriority="high"
+          style={{
+            opacity
+          }} 
+          initial={{
+            scale: 1
+          }} 
+          animate={{
+            scale: [1, 1.08, 1],
+            x: [0, 15, 0],
+            y: [0, -10, 0]
+          }} 
+          transition={{
+            duration: 25,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse"
+          }} 
+        />
       </motion.div>
       <div className="absolute inset-0 z-[1] bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
 

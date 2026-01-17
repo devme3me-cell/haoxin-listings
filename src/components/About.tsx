@@ -21,10 +21,10 @@ const About = () => {
           {/* Images */}
           <div className="relative">
             <div className="image-reveal">
-              <img alt="禮儀服務" className="w-full aspect-[4/5] object-cover rounded-lg" src="https://s.web66.com.tw/_file/C15/158556/AB/13663383984661.jpg" />
+              <img alt="禮儀服務" className="w-full aspect-[4/5] object-cover rounded-lg" src="https://s.web66.com.tw/_file/C15/158556/AB/13663383984661.jpg" loading="lazy" />
             </div>
             <div className="absolute -bottom-8 -right-8 w-2/3 image-reveal hidden md:block">
-              <img alt="接待大廳" className="w-full aspect-square object-cover border-8 border-background shadow-2xl" src="https://arielhsu.tw/wp-content/uploads/20201105021040_100.jpg" />
+              <img alt="接待大廳" className="w-full aspect-square object-cover border-8 border-background shadow-2xl" src="https://arielhsu.tw/wp-content/uploads/20201105021040_100.jpg" loading="lazy" />
             </div>
           </div>
 

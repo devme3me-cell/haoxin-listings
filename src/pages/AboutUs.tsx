@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Heart, Shield, Award, Users } from "lucide-react";
 import Contact from "@/components/Contact";
+
 const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const fadeInUp = {
     hidden: {
       opacity: 0,

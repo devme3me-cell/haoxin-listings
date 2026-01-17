@@ -4,6 +4,7 @@ import Services from "@/components/Services";
 import About from "@/components/About";
 import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
+import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CloudReveal from "@/components/CloudReveal";
@@ -20,6 +21,7 @@ const Index = () => {
         <About />
         <Gallery />
         <Testimonials />
+        <Certificates />
         <Contact />
         <Footer />
       </div>

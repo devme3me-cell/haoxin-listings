@@ -95,6 +95,10 @@ export default {
           from: { opacity: "0", transform: "scale3d(0.95, 0.95, 1)" },
           to: { opacity: "1", transform: "scale3d(1, 1, 1)" },
         },
+        "carousel-scroll": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
@@ -102,6 +106,7 @@ export default {
         "fade-in": "fade-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
         "slide-up": "slide-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
         "scale-in": "scale-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
+        "carousel-scroll": "carousel-scroll 20s linear infinite",
       },
     },
   },

@@ -40,7 +40,7 @@ const TransactionCard = ({ location, name, action, product, mask, time }: Transa
   const productDisplay = product || mask;
 
   return (
-    <div className="w-full p-4 md:p-6 bg-white/[0.03] backdrop-blur-[20px] border border-white/[0.08] rounded-2xl transition-all duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer relative overflow-hidden hover:translate-x-2 hover:scale-[1.02] hover:bg-white/[0.08] hover:border-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_40px_rgba(99,102,241,0.1)] group">
+    <div className="w-full p-4 md:p-6 bg-white/[0.03] backdrop-blur-[20px] border border-white/[0.08] rounded-2xl transition-all duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] cursor-default pointer-events-none relative overflow-hidden hover:translate-x-2 hover:scale-[1.02] hover:bg-white/[0.08] hover:border-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_40px_rgba(99,102,241,0.1)] group [pointer-events:auto]">
       <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent transition-[left] duration-[600ms] ease-linear group-hover:left-full" />
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
         <div className="flex items-center gap-2 md:gap-3 flex-wrap">

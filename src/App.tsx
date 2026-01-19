@@ -13,6 +13,7 @@ const Disclaimer = lazy(() => import("./pages/Disclaimer"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Listings = lazy(() => import("./pages/Listings"));
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
               <Route path="/disclaimer" element={<Disclaimer />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/listings" element={<Listings />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

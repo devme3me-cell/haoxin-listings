@@ -10,7 +10,7 @@ const Footer = () => {
               <span className="text-2xl font-heading font-semibold tracking-wider">
                 壕芯實業
               </span>
-              
+
             </div>
             <p className="text-muted-foreground leading-relaxed max-w-md mb-6 text-sm">
               主要以服務殯葬禮儀、代銷殯葬商品、生基科儀、法會等服務，秉持著「以客為尊」的企業精神服務每一位客戶，提供高規格高品質的優良服務。
@@ -31,6 +31,7 @@ const Footer = () => {
               <li><a href="#services" className="hover:text-foreground transition-colors">代銷塔位</a></li>
               <li><a href="#services" className="hover:text-foreground transition-colors">代銷骨灰罈</a></li>
               <li><a href="#services" className="hover:text-foreground transition-colors">科儀服務</a></li>
+              <li><Link to="/listings" className="hover:text-foreground transition-colors">物件列表</Link></li>
             </ul>
           </div>
 

@@ -22,13 +22,14 @@ const Header = () => {
 
   const navItems = [
     { name: "關於我們", href: "/about", isPage: true },
+    { name: "物件列表", href: "/listings", isPage: true },
     { name: "服務項目", href: "#services" },
     { name: "聯絡我們", href: "#contact" },
   ];
 
   const handleNavClick = (e: React.MouseEvent, href: string, isPage?: boolean) => {
     if (isPage) return;
-    
+
     if (isHomePage && href.startsWith("#")) {
       e.preventDefault();
       const targetId = href.slice(1);
@@ -50,7 +51,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo with gold shimmer - hidden at top, appears on scroll */}
           <Link to="/" className="flex flex-col items-start group">
-            <motion.span 
+            <motion.span
               className="text-xl md:text-2xl font-heading font-semibold tracking-wider relative overflow-hidden"
               style={{
                 background: "linear-gradient(90deg, hsl(38, 70%, 50%) 0%, hsl(45, 85%, 70%) 25%, hsl(38, 70%, 50%) 50%, hsl(45, 85%, 70%) 75%, hsl(38, 70%, 50%) 100%)",

@@ -9,13 +9,16 @@ import {
   EyeOff,
   LogOut,
   RotateCcw,
-  Shield,
   LayoutGrid,
   ExternalLink,
   ChevronRight,
   MapPin,
   CheckCircle2,
   XCircle,
+  Database,
+  HardDrive,
+  Loader2,
+  RefreshCw,
 } from "lucide-react";
 import { useListings, type Listing } from "@/context/ListingsContext";
 import { Button } from "@/components/ui/button";
@@ -79,8 +82,9 @@ const Admin = () => {
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [editingListing, setEditingListing] = useState<Listing | null>(null);
   const [formData, setFormData] = useState<ListingFormData>(emptyFormData);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { listings, addListing, updateListing, deleteListing, toggleSold, resetListings } =
+  const { listings, loading, error, isUsingSupabase, addListing, updateListing, deleteListing, toggleSold, resetListings, refreshListings } =
     useListings();
 
   const handleLogin = (e: React.FormEvent) => {
@@ -98,26 +102,40 @@ const Admin = () => {
     setPassword("");
   };
 
-  const handleAddSubmit = (e: React.FormEvent) => {
+  const handleAddSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    addListing({
-      ...formData,
-      price: formData.ownerName,
-      sold: false,
-    });
-    setFormData(emptyFormData);
-    setIsAddDialogOpen(false);
-  };
-
-  const handleEditSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (editingListing) {
-      updateListing(editingListing.id, {
+    setIsSubmitting(true);
+    try {
+      await addListing({
         ...formData,
         price: formData.ownerName,
+        sold: false,
       });
-      setEditingListing(null);
       setFormData(emptyFormData);
+      setIsAddDialogOpen(false);
+    } catch (err) {
+      console.error("新增失敗:", err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleEditSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (editingListing) {
+      setIsSubmitting(true);
+      try {
+        await updateListing(editingListing.id, {
+          ...formData,
+          price: formData.ownerName,
+        });
+        setEditingListing(null);
+        setFormData(emptyFormData);
+      } catch (err) {
+        console.error("編輯失敗:", err);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -143,8 +161,12 @@ const Admin = () => {
         <div className="w-full max-w-sm">
           <div className="bg-white rounded-3xl border border-border p-6 sm:p-8 shadow-xl">
             <div className="text-center mb-8">
-              <div className="w-20 h-20 mx-auto mb-5 bg-gradient-to-br from-warm-gold/20 to-warm-gold/5 rounded-3xl flex items-center justify-center shadow-inner">
-                <Shield className="w-10 h-10 text-warm-gold" />
+              <div className="w-44 h-44 mx-auto mb-4">
+                <img
+                  src="https://ugc.same-assets.com/KYQTkxTi2KqviQGNFjqYVyGP4Q1fHUiI.png"
+                  alt="壕芯實業"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h1 className="text-2xl font-heading font-bold text-foreground mb-2">
                 管理後台
@@ -314,6 +336,33 @@ const Admin = () => {
               </div>
             </div>
             <div className="flex items-center gap-2">
+              {/* Database Status */}
+              <div className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${
+                isUsingSupabase
+                  ? "bg-green-100 text-green-700"
+                  : "bg-amber-100 text-amber-700"
+              }`}>
+                {isUsingSupabase ? (
+                  <>
+                    <Database className="w-3.5 h-3.5" />
+                    <span>Supabase</span>
+                  </>
+                ) : (
+                  <>
+                    <HardDrive className="w-3.5 h-3.5" />
+                    <span>本地儲存</span>
+                  </>
+                )}
+              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => refreshListings()}
+                disabled={loading}
+                className="w-10 h-10 rounded-xl"
+              >
+                <RefreshCw className={`w-5 h-5 ${loading ? 'animate-spin' : ''}`} />
+              </Button>
               <Link to="/listings">
                 <Button
                   variant="ghost"
@@ -337,6 +386,33 @@ const Admin = () => {
       </header>
 
       <main className="px-4 sm:px-6 py-6 max-w-6xl mx-auto">
+        {/* Error Banner */}
+        {error && (
+          <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+            <p className="font-medium">發生錯誤</p>
+            <p>{error}</p>
+          </div>
+        )}
+
+        {/* Mobile Database Status */}
+        <div className={`sm:hidden flex items-center justify-center gap-2 mb-4 px-3 py-2 rounded-xl text-xs font-medium ${
+          isUsingSupabase
+            ? "bg-green-100 text-green-700"
+            : "bg-amber-100 text-amber-700"
+        }`}>
+          {isUsingSupabase ? (
+            <>
+              <Database className="w-3.5 h-3.5" />
+              <span>已連接 Supabase 資料庫</span>
+            </>
+          ) : (
+            <>
+              <HardDrive className="w-3.5 h-3.5" />
+              <span>使用本地儲存（瀏覽器）</span>
+            </>
+          )}
+        </div>
+
         {/* Stats Cards - Horizontal scroll on mobile */}
         <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-3 sm:overflow-visible scrollbar-hide">
           <div className="flex-shrink-0 w-[140px] sm:w-auto bg-white rounded-2xl border border-border p-4 shadow-sm">
@@ -384,14 +460,15 @@ const Admin = () => {
               <form onSubmit={handleAddSubmit} className="space-y-4">
                 {renderFormFields(false)}
                 <div className="flex gap-3 pt-2">
-                  <Button type="button" variant="outline" className="flex-1 h-11 rounded-xl" onClick={() => setIsAddDialogOpen(false)}>
+                  <Button type="button" variant="outline" className="flex-1 h-11 rounded-xl" onClick={() => setIsAddDialogOpen(false)} disabled={isSubmitting}>
                     取消
                   </Button>
                   <Button
                     type="submit"
                     className="flex-1 h-11 bg-warm-gold hover:bg-warm-gold/90 text-white rounded-xl"
+                    disabled={isSubmitting}
                   >
-                    新增
+                    {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : "新增"}
                   </Button>
                 </div>
               </form>
@@ -427,8 +504,16 @@ const Admin = () => {
 
         {/* Listings - Cards on mobile, Table on desktop */}
         <div className="mt-6 sm:mt-0">
+          {/* Loading State */}
+          {loading && (
+            <div className="flex items-center justify-center py-12">
+              <Loader2 className="w-8 h-8 animate-spin text-warm-gold" />
+              <span className="ml-2 text-muted-foreground">載入中...</span>
+            </div>
+          )}
+
           {/* Mobile Card View */}
-          <div className="space-y-3 sm:hidden">
+          {!loading && <div className="space-y-3 sm:hidden">
             {listings.map((listing) => (
               <div
                 key={listing.id}
@@ -570,10 +655,10 @@ const Admin = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </div>}
 
           {/* Desktop Table View */}
-          <div className="hidden sm:block bg-white rounded-2xl border border-border overflow-hidden shadow-sm">
+          {!loading && <div className="hidden sm:block bg-white rounded-2xl border border-border overflow-hidden shadow-sm">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-secondary/30 border-b border-border">
@@ -743,7 +828,7 @@ const Admin = () => {
                 <p className="text-muted-foreground">尚無物件資料</p>
               </div>
             )}
-          </div>
+          </div>}
 
           {/* Empty state for mobile */}
           {listings.length === 0 && (
@@ -801,14 +886,15 @@ const Admin = () => {
               <form onSubmit={handleAddSubmit} className="space-y-4">
                 {renderFormFields(false)}
                 <div className="flex gap-3 pt-2">
-                  <Button type="button" variant="outline" className="flex-1 h-11 rounded-xl" onClick={() => setIsAddDialogOpen(false)}>
+                  <Button type="button" variant="outline" className="flex-1 h-11 rounded-xl" onClick={() => setIsAddDialogOpen(false)} disabled={isSubmitting}>
                     取消
                   </Button>
                   <Button
                     type="submit"
                     className="flex-1 h-11 bg-warm-gold hover:bg-warm-gold/90 text-white rounded-xl"
+                    disabled={isSubmitting}
                   >
-                    新增
+                    {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : "新增"}
                   </Button>
                 </div>
               </form>

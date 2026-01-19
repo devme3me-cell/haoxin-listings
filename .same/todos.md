@@ -15,22 +15,32 @@
 - [x] Create admin panel with password protection
 - [x] Redesign admin panel with sleek mobile RWD
 - [x] Add drag and drop image upload
+- [x] Replace admin login icon with uploaded logo
+- [x] Make admin login logo bigger (176px)
+- [x] Connect to Supabase database with localStorage fallback
 
 ## Current State
-- Project version: 11
+- Project version: 17
 - Dev server running on port 8080
 - GitHub repo: https://github.com/devme3me-cell/haoxin-listings
 - Admin panel: /admin (password: haoxin2026)
 - Features:
-  - Drag and drop image upload
-  - Click to select from file browser
-  - Image preview with remove button
-  - URL input fallback for external images
-  - Base64 encoding for localStorage storage
-  - Max file size: 5MB
-  - Supports all image formats
+  - Supabase database integration with real-time updates
+  - localStorage fallback when Supabase not configured
+  - Database status indicator in admin panel
+  - Loading states and error handling
+  - Async CRUD operations
+
+## Supabase Setup Instructions
+1. Create a Supabase project at https://supabase.com
+2. Copy your project URL and anon key
+3. Create a `.env` file with:
+   - VITE_SUPABASE_URL=your_url
+   - VITE_SUPABASE_ANON_KEY=your_key
+4. Run the SQL schema in `supabase-schema.sql`
 
 ## Pending (Optional)
-- [ ] Connect to Supabase database for dynamic data
 - [ ] Add listing detail page
 - [ ] Deploy to Netlify or other hosting
+- [ ] Add toast notifications for actions
+- [ ] Add image compression before storing

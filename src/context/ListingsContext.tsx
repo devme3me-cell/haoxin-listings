@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
+import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 
 // Listing type definition
 export interface Listing {
@@ -13,6 +14,50 @@ export interface Listing {
   ownerName: string;
   sold?: boolean;
 }
+
+// Database type (snake_case for Supabase)
+interface DbListing {
+  id: string;
+  title: string;
+  type: "出售" | "收購";
+  location: string;
+  price: string;
+  description: string;
+  image_url?: string;
+  created_at: string;
+  owner_name: string;
+  sold?: boolean;
+}
+
+// Convert from database format to app format
+const fromDbListing = (db: DbListing): Listing => ({
+  id: db.id,
+  title: db.title,
+  type: db.type,
+  location: db.location,
+  price: db.price,
+  description: db.description,
+  imageUrl: db.image_url,
+  createdAt: db.created_at,
+  ownerName: db.owner_name,
+  sold: db.sold,
+});
+
+// Convert from app format to database format
+const toDbListing = (listing: Partial<Listing>): Partial<DbListing> => {
+  const db: Partial<DbListing> = {};
+  if (listing.id !== undefined) db.id = listing.id;
+  if (listing.title !== undefined) db.title = listing.title;
+  if (listing.type !== undefined) db.type = listing.type;
+  if (listing.location !== undefined) db.location = listing.location;
+  if (listing.price !== undefined) db.price = listing.price;
+  if (listing.description !== undefined) db.description = listing.description;
+  if (listing.imageUrl !== undefined) db.image_url = listing.imageUrl;
+  if (listing.createdAt !== undefined) db.created_at = listing.createdAt;
+  if (listing.ownerName !== undefined) db.owner_name = listing.ownerName;
+  if (listing.sold !== undefined) db.sold = listing.sold;
+  return db;
+};
 
 // Initial listings data
 const initialListings: Listing[] = [
@@ -140,11 +185,15 @@ const initialListings: Listing[] = [
 
 interface ListingsContextType {
   listings: Listing[];
-  addListing: (listing: Omit<Listing, "id" | "createdAt">) => void;
-  updateListing: (id: string, listing: Partial<Listing>) => void;
-  deleteListing: (id: string) => void;
-  toggleSold: (id: string) => void;
-  resetListings: () => void;
+  loading: boolean;
+  error: string | null;
+  isUsingSupabase: boolean;
+  addListing: (listing: Omit<Listing, "id" | "createdAt">) => Promise<void>;
+  updateListing: (id: string, listing: Partial<Listing>) => Promise<void>;
+  deleteListing: (id: string) => Promise<void>;
+  toggleSold: (id: string) => Promise<void>;
+  resetListings: () => Promise<void>;
+  refreshListings: () => Promise<void>;
 }
 
 const ListingsContext = createContext<ListingsContextType | undefined>(undefined);
@@ -152,8 +201,13 @@ const ListingsContext = createContext<ListingsContextType | undefined>(undefined
 const STORAGE_KEY = "haoxin_listings";
 
 export function ListingsProvider({ children }: { children: ReactNode }) {
-  const [listings, setListings] = useState<Listing[]>(() => {
-    // Try to load from localStorage
+  const [listings, setListings] = useState<Listing[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [isUsingSupabase] = useState(() => isSupabaseConfigured());
+
+  // Load listings from localStorage
+  const loadFromLocalStorage = useCallback(() => {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
@@ -165,56 +219,195 @@ export function ListingsProvider({ children }: { children: ReactNode }) {
       }
     }
     return initialListings;
-  });
+  }, []);
 
-  // Persist to localStorage whenever listings change
+  // Save to localStorage
+  const saveToLocalStorage = useCallback((data: Listing[]) => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }, []);
+
+  // Fetch listings from Supabase
+  const fetchFromSupabase = useCallback(async () => {
+    const { data, error } = await supabase
+      .from("listings")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) throw error;
+    return (data as DbListing[]).map(fromDbListing);
+  }, []);
+
+  // Refresh listings
+  const refreshListings = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      if (isUsingSupabase) {
+        const data = await fetchFromSupabase();
+        setListings(data);
+      } else {
+        const data = loadFromLocalStorage();
+        setListings(data);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "載入資料失敗");
+      // Fallback to localStorage on Supabase error
+      const data = loadFromLocalStorage();
+      setListings(data);
+    } finally {
+      setLoading(false);
+    }
+  }, [isUsingSupabase, fetchFromSupabase, loadFromLocalStorage]);
+
+  // Initial load
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(listings));
-  }, [listings]);
+    refreshListings();
+  }, [refreshListings]);
 
-  const addListing = (listing: Omit<Listing, "id" | "createdAt">) => {
+  // Persist to localStorage when not using Supabase
+  useEffect(() => {
+    if (!isUsingSupabase && listings.length > 0) {
+      saveToLocalStorage(listings);
+    }
+  }, [listings, isUsingSupabase, saveToLocalStorage]);
+
+  // Subscribe to real-time updates from Supabase
+  useEffect(() => {
+    if (!isUsingSupabase) return;
+
+    const channel = supabase
+      .channel("listings-changes")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "listings" },
+        () => {
+          // Refresh on any change
+          refreshListings();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [isUsingSupabase, refreshListings]);
+
+  const addListing = async (listing: Omit<Listing, "id" | "createdAt">) => {
     const newListing: Listing = {
       ...listing,
       id: String(Date.now()),
       createdAt: new Date().toISOString().split("T")[0],
     };
-    setListings((prev) => [newListing, ...prev]);
+
+    if (isUsingSupabase) {
+      try {
+        const { error } = await supabase
+          .from("listings")
+          .insert([toDbListing(newListing)]);
+        if (error) throw error;
+        await refreshListings();
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "新增失敗");
+        throw err;
+      }
+    } else {
+      setListings((prev) => [newListing, ...prev]);
+    }
   };
 
-  const updateListing = (id: string, updates: Partial<Listing>) => {
-    setListings((prev) =>
-      prev.map((listing) =>
-        listing.id === id ? { ...listing, ...updates } : listing
-      )
-    );
+  const updateListing = async (id: string, updates: Partial<Listing>) => {
+    if (isUsingSupabase) {
+      try {
+        const { error } = await supabase
+          .from("listings")
+          .update(toDbListing(updates))
+          .eq("id", id);
+        if (error) throw error;
+        await refreshListings();
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "更新失敗");
+        throw err;
+      }
+    } else {
+      setListings((prev) =>
+        prev.map((listing) =>
+          listing.id === id ? { ...listing, ...updates } : listing
+        )
+      );
+    }
   };
 
-  const deleteListing = (id: string) => {
-    setListings((prev) => prev.filter((listing) => listing.id !== id));
+  const deleteListing = async (id: string) => {
+    if (isUsingSupabase) {
+      try {
+        const { error } = await supabase.from("listings").delete().eq("id", id);
+        if (error) throw error;
+        await refreshListings();
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "刪除失敗");
+        throw err;
+      }
+    } else {
+      setListings((prev) => prev.filter((listing) => listing.id !== id));
+    }
   };
 
-  const toggleSold = (id: string) => {
-    setListings((prev) =>
-      prev.map((listing) =>
-        listing.id === id ? { ...listing, sold: !listing.sold } : listing
-      )
-    );
+  const toggleSold = async (id: string) => {
+    const listing = listings.find((l) => l.id === id);
+    if (!listing) return;
+
+    if (isUsingSupabase) {
+      try {
+        const { error } = await supabase
+          .from("listings")
+          .update({ sold: !listing.sold })
+          .eq("id", id);
+        if (error) throw error;
+        await refreshListings();
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "更新失敗");
+        throw err;
+      }
+    } else {
+      setListings((prev) =>
+        prev.map((l) => (l.id === id ? { ...l, sold: !l.sold } : l))
+      );
+    }
   };
 
-  const resetListings = () => {
-    setListings(initialListings);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(initialListings));
+  const resetListings = async () => {
+    if (isUsingSupabase) {
+      try {
+        // Delete all and insert initial
+        await supabase.from("listings").delete().neq("id", "");
+        const { error } = await supabase
+          .from("listings")
+          .insert(initialListings.map(toDbListing));
+        if (error) throw error;
+        await refreshListings();
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "重置失敗");
+        throw err;
+      }
+    } else {
+      setListings(initialListings);
+      saveToLocalStorage(initialListings);
+    }
   };
 
   return (
     <ListingsContext.Provider
       value={{
         listings,
+        loading,
+        error,
+        isUsingSupabase,
         addListing,
         updateListing,
         deleteListing,
         toggleSold,
         resetListings,
+        refreshListings,
       }}
     >
       {children}

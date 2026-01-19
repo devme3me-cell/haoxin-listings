@@ -18,16 +18,19 @@
 - [x] Replace admin login icon with uploaded logo
 - [x] Make admin login logo bigger (176px)
 - [x] Connect to Supabase database with localStorage fallback
+- [x] Set up Supabase Storage for image uploads
 
 ## Current State
-- Project version: 17
+- Project version: 18
 - Dev server running on port 8080
 - GitHub repo: https://github.com/devme3me-cell/haoxin-listings
 - Admin panel: /admin (password: haoxin2026)
 - Features:
   - Supabase database integration with real-time updates
+  - Supabase Storage for cloud image uploads
   - localStorage fallback when Supabase not configured
   - Database status indicator in admin panel
+  - Cloud/Local storage indicator on images
   - Loading states and error handling
   - Async CRUD operations
 
@@ -38,6 +41,10 @@
    - VITE_SUPABASE_URL=your_url
    - VITE_SUPABASE_ANON_KEY=your_key
 4. Run the SQL schema in `supabase-schema.sql`
+5. For image uploads:
+   - Go to Storage in Supabase Dashboard
+   - Create a bucket named "listings" (public)
+   - Or run the storage SQL in the schema file
 
 ## Pending (Optional)
 - [ ] Add listing detail page

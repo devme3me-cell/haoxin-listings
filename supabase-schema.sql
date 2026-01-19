@@ -1,6 +1,37 @@
 -- Supabase Schema for Haoxin Listings
 -- Run this in your Supabase SQL Editor
 
+-- =============================================
+-- STEP 1: Create Storage Bucket (do this first in Supabase Dashboard)
+-- =============================================
+-- 1. Go to Storage in your Supabase Dashboard
+-- 2. Click "New bucket"
+-- 3. Name: "listings"
+-- 4. Check "Public bucket" to allow public access
+-- 5. Click "Create bucket"
+
+-- Or run this SQL to create the bucket:
+INSERT INTO storage.buckets (id, name, public)
+VALUES ('listings', 'listings', true)
+ON CONFLICT (id) DO NOTHING;
+
+-- Allow public access to the listings bucket
+CREATE POLICY "Public Access" ON storage.objects
+  FOR SELECT USING (bucket_id = 'listings');
+
+CREATE POLICY "Anyone can upload" ON storage.objects
+  FOR INSERT WITH CHECK (bucket_id = 'listings');
+
+CREATE POLICY "Anyone can update" ON storage.objects
+  FOR UPDATE USING (bucket_id = 'listings');
+
+CREATE POLICY "Anyone can delete" ON storage.objects
+  FOR DELETE USING (bucket_id = 'listings');
+
+-- =============================================
+-- STEP 2: Create Listings Table
+-- =============================================
+
 -- Create listings table
 CREATE TABLE IF NOT EXISTS listings (
   id TEXT PRIMARY KEY,

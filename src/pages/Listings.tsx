@@ -224,7 +224,7 @@ const Listings = () => {
                     {listing.title}
                   </h3>
                   <p className="text-xs text-muted-foreground mb-2 line-clamp-2">{listing.description}</p>
-                  <p className={`font-semibold ${listing.sold ? "text-muted-foreground line-through" : "text-warm-gold"}`}>
+                  <p className={`font-semibold ${listing.sold ? "text-muted-foreground" : "text-warm-gold"}`}>
                     {listing.ownerName}
                   </p>
                 </div>

@@ -1,138 +1,13 @@
 import { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Phone, Mail, Search, Grid3X3, List, RefreshCw, FileText } from "lucide-react";
-
-// Listing type definition
-interface Listing {
-  id: string;
-  title: string;
-  type: "出售" | "收購";
-  location: string;
-  price: string;
-  description: string;
-  imageUrl?: string;
-  createdAt: string;
-  ownerName: string;
-}
-
-// Real listings data with uploaded images
-const mockListings: Listing[] = [
-  {
-    id: "1",
-    title: "國寶中投福座 - 華嚴世界單人位",
-    type: "出售",
-    location: "南投縣",
-    price: "李先生",
-    description: "龍寶興業股份有限公司發行，永久使用權狀，位置極佳",
-    imageUrl: "/listings/S__83640575_0.jpg",
-    createdAt: "2026-01-19",
-    ownerName: "李先生",
-  },
-  {
-    id: "2",
-    title: "基隆金寶塔 - 單人骨灰位",
-    type: "出售",
-    location: "基隆市",
-    price: "王太太",
-    description: "思恩區位置，基隆金寶塔建設開發股份有限公司，永久使用權",
-    imageUrl: "/listings/S__83640574_0.jpg",
-    createdAt: "2026-01-18",
-    ownerName: "王太太",
-  },
-  {
-    id: "3",
-    title: "福壽園 - 添福專案",
-    type: "出售",
-    location: "嘉義縣",
-    price: "張先生",
-    description: "添福專區，鼎磊實業有限公司發行，專案使用憑證",
-    imageUrl: "/listings/S__83640573_0.jpg",
-    createdAt: "2026-01-17",
-    ownerName: "張先生",
-  },
-  {
-    id: "4",
-    title: "北海福座 - 淨緣個人型",
-    type: "出售",
-    location: "新北市",
-    price: "陳小姐",
-    description: "福座開發股份有限公司，永久使用權狀，環境優美",
-    imageUrl: "/listings/S__83640572_0.jpg",
-    createdAt: "2026-01-16",
-    ownerName: "陳小姐",
-  },
-  {
-    id: "5",
-    title: "淡水宜城園區 - 火化土葬區個人位",
-    type: "出售",
-    location: "新北市淡水區",
-    price: "林小姐",
-    description: "私立宜城墓園，永久使用權狀，水源段552地號，殯葬用地",
-    imageUrl: "/listings/S__83640571_0.jpg",
-    createdAt: "2026-01-15",
-    ownerName: "林小姐",
-  },
-  {
-    id: "6",
-    title: "龍寶山 - 骨灰位",
-    type: "出售",
-    location: "新北市金山區",
-    price: "黃先生",
-    description: "航源事業股份有限公司，西一區位置，永久使用權",
-    imageUrl: "/listings/S__83640534_0.jpg",
-    createdAt: "2026-01-14",
-    ownerName: "黃先生",
-  },
-  {
-    id: "7",
-    title: "天璣文化園區 - 認購憑證",
-    type: "出售",
-    location: "新北市五股區",
-    price: "吳太太",
-    description: "宇垣開發有限公司發行，五股坑位置，含永久管理",
-    imageUrl: "/listings/S__83640533_0.jpg",
-    createdAt: "2026-01-13",
-    ownerName: "吳太太",
-  },
-  {
-    id: "8",
-    title: "慈雲寶塔 - 骨灰盒位",
-    type: "出售",
-    location: "嘉義縣水上鄉",
-    price: "劉先生",
-    description: "健鉦國殿納骨堂，4樓西區，塔位永久使用權狀",
-    imageUrl: "/listings/S__83640532_0.jpg",
-    createdAt: "2026-01-12",
-    ownerName: "劉先生",
-  },
-  {
-    id: "9",
-    title: "法藏山極樂寺 - 骨灰蓮座",
-    type: "出售",
-    location: "新北市石門區",
-    price: "周先生",
-    description: "信徒蓮座使用憑證，可自由轉讓，環境清幽莊嚴",
-    imageUrl: "/listings/S__83640531_0.jpg",
-    createdAt: "2026-01-11",
-    ownerName: "周先生",
-  },
-  {
-    id: "10",
-    title: "佛林寺 - 骨灰位",
-    type: "出售",
-    location: "台北市北投區",
-    price: "蔡小姐",
-    description: "報恩區位置，永久使用權狀，溫泉路150-1號",
-    imageUrl: "/listings/S__83640530_0.jpg",
-    createdAt: "2026-01-10",
-    ownerName: "蔡小姐",
-  },
-];
+import { ArrowLeft, Phone, Mail, Search, Grid3X3, List, RefreshCw, FileText, Settings } from "lucide-react";
+import { useListings } from "@/context/ListingsContext";
 
 type FilterType = "全部" | "出售" | "收購";
 type ViewType = "grid" | "list";
 
 const Listings = () => {
+  const { listings } = useListings();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState<FilterType>("全部");
   const [viewType, setViewType] = useState<ViewType>("grid");
@@ -147,8 +22,9 @@ const Listings = () => {
   }, []);
 
   // Filter listings based on search query and filter type
-  const filteredListings = mockListings.filter((listing) => {
-    const matchesSearch = listing.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  const filteredListings = listings.filter((listing) => {
+    const matchesSearch =
+      listing.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       listing.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
       listing.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       listing.ownerName.includes(searchQuery);
@@ -180,21 +56,30 @@ const Listings = () => {
                 </p>
               </div>
             </div>
-            <div className="hidden md:flex items-center gap-6 text-sm">
-              <a
-                href="tel:02-22425697"
-                className="flex items-center gap-2 text-muted-foreground hover:text-warm-gold transition-colors"
+            <div className="flex items-center gap-4">
+              <div className="hidden md:flex items-center gap-6 text-sm">
+                <a
+                  href="tel:02-22425697"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-warm-gold transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  02-22425697
+                </a>
+                <a
+                  href="mailto:sam0292@gmail.com"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-warm-gold transition-colors"
+                >
+                  <Mail className="w-4 h-4" />
+                  sam0292@gmail.com
+                </a>
+              </div>
+              <Link
+                to="/admin"
+                className="p-2 text-muted-foreground hover:text-warm-gold transition-colors"
+                title="管理後台"
               >
-                <Phone className="w-4 h-4" />
-                02-22425697
-              </a>
-              <a
-                href="mailto:sam0292@gmail.com"
-                className="flex items-center gap-2 text-muted-foreground hover:text-warm-gold transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                sam0292@gmail.com
-              </a>
+                <Settings className="w-5 h-5" />
+              </Link>
             </div>
           </div>
         </div>
@@ -291,39 +176,57 @@ const Listings = () => {
             {filteredListings.map((listing) => (
               <div
                 key={listing.id}
-                className={`bg-white rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow ${
+                className={`bg-white rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow relative ${
                   viewType === "list" ? "flex" : ""
                 }`}
               >
                 {listing.imageUrl && (
                   <div
-                    className={`bg-secondary/30 overflow-hidden ${
+                    className={`bg-secondary/30 overflow-hidden relative ${
                       viewType === "list" ? "w-48 flex-shrink-0" : "aspect-[4/3]"
                     }`}
                   >
                     <img
                       src={listing.imageUrl}
                       alt={listing.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      className={`w-full h-full object-cover hover:scale-105 transition-transform duration-300 ${
+                        listing.sold ? "opacity-70" : ""
+                      }`}
                     />
+                    {/* Sold Overlay */}
+                    {listing.sold && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <img
+                          src="/listings/Stamp.png"
+                          alt="已成交"
+                          className="w-32 h-auto opacity-90 transform rotate-[-15deg]"
+                        />
+                      </div>
+                    )}
                   </div>
                 )}
                 <div className="p-4 flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <span
                       className={`px-2 py-0.5 rounded-full text-xs font-medium ${
-                        listing.type === "出售"
+                        listing.sold
+                          ? "bg-gray-200 text-gray-500"
+                          : listing.type === "出售"
                           ? "bg-warm-gold/15 text-warm-gold"
                           : "bg-blue-500/15 text-blue-600"
                       }`}
                     >
-                      {listing.type}
+                      {listing.sold ? "已成交" : listing.type}
                     </span>
                     <span className="text-xs text-muted-foreground">{listing.location}</span>
                   </div>
-                  <h3 className="font-medium text-foreground mb-1 line-clamp-2">{listing.title}</h3>
+                  <h3 className={`font-medium mb-1 line-clamp-2 ${listing.sold ? "text-muted-foreground" : "text-foreground"}`}>
+                    {listing.title}
+                  </h3>
                   <p className="text-xs text-muted-foreground mb-2 line-clamp-2">{listing.description}</p>
-                  <p className="text-warm-gold font-semibold">{listing.price}</p>
+                  <p className={`font-semibold ${listing.sold ? "text-muted-foreground line-through" : "text-warm-gold"}`}>
+                    {listing.ownerName}
+                  </p>
                 </div>
               </div>
             ))}
